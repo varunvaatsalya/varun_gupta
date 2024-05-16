@@ -26,13 +26,16 @@ import {
   FaReact,
 } from "react-icons/fa";
 import Link from "next/link";
+import Dropdown from "./DropMenu";
 
 function Main() {
   return (
     <>
       {/* profile */}
-      <div className="border border-gray-400 dark:border-gray-800 rounded-lg sm:my-2 px-4 py-4 my-2">
-        <div className="w-full h-12"></div>
+      <div className="border bg-zinc-200 dark:bg-gray-950 border-gray-400 dark:border-gray-800 rounded-lg sm:my-2 px-4 py-4 my-2">
+        <div className="w-full h-12 flex justify-end">
+        <Dropdown/>
+        </div>
         <hr className="border-1 border-gray-400 dark:border-gray-800 my-2" />
         <div className="sm:flex">
           <div className="w-3/5 sm:w-1/4 py-8 mx-auto">
@@ -94,7 +97,7 @@ function Main() {
               </Link>
               <Link
                 className="hover:text-orange-500"
-                href="#"
+                href="https://github.com/varunvaatsalya/"
                 target="_blank"
                 rel="noopener"
               >
@@ -102,7 +105,7 @@ function Main() {
               </Link>
               <Link
                 className="hover:text-orange-500"
-                href="#"
+                href="https://mail.google.com/mail/u/1/?view=cm&fs=1&to=varunvaatsalya@gmail.com&tf=1"
                 target="_blank"
                 rel="noopener"
               >
@@ -112,8 +115,14 @@ function Main() {
           </div>
         </div>
       </div>
+      {/* about */}
+      <div className="border bg-zinc-200 dark:bg-gray-950 border-gray-400 dark:border-gray-800 rounded-lg sm:my-2 px-6 py-8 my-2 h-96">
+      <div className="text-3xl font-semibold text-center gradient">
+          About Us
+        </div>
+      </div>
       {/* skills */}
-      <div className="border border-gray-400 dark:border-gray-800 rounded-lg sm:my-2 px-6 py-8 my-2">
+      <div className="border bg-zinc-200 dark:bg-gray-950 border-gray-400 dark:border-gray-800 rounded-lg sm:my-2 px-6 py-8 my-2">
         <div className="text-3xl font-semibold text-center gradient">
           Skills
         </div>
@@ -177,7 +186,7 @@ function Main() {
         </div>
       </div>
       {/* education */}
-      <div className="border border-gray-400 dark:border-gray-800 rounded-lg sm:my-2 px-6 py-4 my-2">
+      <div className="border bg-zinc-200 dark:bg-gray-950 border-gray-400 dark:border-gray-800 rounded-lg sm:my-2 px-6 py-4 my-2">
         <div className="text-2xl font-semibold text-center gradient">
           Education
         </div>
@@ -203,7 +212,7 @@ function Main() {
         </div>
       </div>
       {/* projects */}
-      <div className="border border-gray-400 dark:border-gray-800 rounded-lg sm:my-2 px-6 py-4 my-2">
+      <div className="border bg-zinc-200 dark:bg-gray-950 border-gray-400 dark:border-gray-800 rounded-lg sm:my-2 px-6 py-4 my-2">
         <div className="text-3xl font-semibold text-center gradient">
           Projects
         </div>
@@ -367,8 +376,8 @@ function Main() {
         </div>
       </div>
       {/* contact */}
-      <div className="border border-gray-400 dark:border-gray-800 rounded-lg sm:my-2 px-6 py-4 my-2">
-        <div className="w-32 p-1 bg-slate-800 rounded-xl mx-auto text-center font-semibold my-4">
+      <div className="border bg-zinc-200 dark:bg-gray-950 border-gray-400 dark:border-gray-800 rounded-lg sm:my-2 px-6 py-4 my-2">
+        <div className="w-32 p-1 bg-gradient text-slate-100 rounded-xl mx-auto text-center font-semibold my-4">
           Get in touch
         </div>
         <div className="text-gray-700 dark:text-gray-400 mt-4 mb-8 sm:w-3/5 mx-auto text-center">
@@ -422,7 +431,7 @@ function Main() {
             </Link>
             <Link
               className="hover:text-orange-500"
-              href="#"
+              href="https://github.com/varunvaatsalya/"
               target="_blank"
               rel="noopener"
             >
