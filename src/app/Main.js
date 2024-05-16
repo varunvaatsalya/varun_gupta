@@ -11,9 +11,11 @@ import {
   SiTailwindcss,
   SiThealgorithms,
 } from "react-icons/si";
-import { TbBrandCpp, TbPointFilled } from "react-icons/tb";
-import { RiNextjsLine, RiTwitterXFill } from "react-icons/ri";
+import { HiOutlineMail } from "react-icons/hi";
+import { TbBrandCpp, TbCopy, TbPointFilled } from "react-icons/tb";
+import { RiNextjsLine, RiPhoneFill, RiTwitterXFill } from "react-icons/ri";
 import {
+  FaExternalLinkAlt,
   FaGitAlt,
   FaGithub,
   FaHtml5,
@@ -29,7 +31,7 @@ function Main() {
   return (
     <>
       {/* profile */}
-      <div className="border border-gray-400 dark:border-gray-800 rounded-lg sm:my-2 px-4 py-4">
+      <div className="border border-gray-400 dark:border-gray-800 rounded-lg sm:my-2 px-4 py-4 my-2">
         <div className="w-full h-12"></div>
         <hr className="border-1 border-gray-400 dark:border-gray-800 my-2" />
         <div className="sm:flex">
@@ -111,7 +113,7 @@ function Main() {
         </div>
       </div>
       {/* skills */}
-      <div className="border border-gray-400 dark:border-gray-800 rounded-lg sm:my-2 px-6 py-8">
+      <div className="border border-gray-400 dark:border-gray-800 rounded-lg sm:my-2 px-6 py-8 my-2">
         <div className="text-3xl font-semibold text-center gradient">
           Skills
         </div>
@@ -175,7 +177,7 @@ function Main() {
         </div>
       </div>
       {/* education */}
-      <div className="border border-gray-400 dark:border-gray-800 rounded-lg sm:my-2 px-6 py-4">
+      <div className="border border-gray-400 dark:border-gray-800 rounded-lg sm:my-2 px-6 py-4 my-2">
         <div className="text-2xl font-semibold text-center gradient">
           Education
         </div>
@@ -201,7 +203,7 @@ function Main() {
         </div>
       </div>
       {/* projects */}
-      <div className="border border-gray-400 dark:border-gray-800 rounded-lg sm:my-2 px-6 py-4">
+      <div className="border border-gray-400 dark:border-gray-800 rounded-lg sm:my-2 px-6 py-4 my-2">
         <div className="text-3xl font-semibold text-center gradient">
           Projects
         </div>
@@ -210,7 +212,7 @@ function Main() {
             <Image
               height={800}
               width={800}
-              className="outline outline-2 outline-offset-4 outline-gray-400 dark:outline-gray-700 rounded-lg aspect-video object-cover object-center w-11/12 mx-auto hover:opacity-50"
+              className="outline outline-2 outline-offset-4 outline-gray-400 dark:outline-gray-700 rounded-lg aspect-video object-cover object-center w-11/12 mx-auto"
               src="/images/encore.png"
               alt="Varun"
             />
@@ -223,20 +225,21 @@ function Main() {
             <Link
               href="https://encore-iaxq.onrender.com/home"
               target="_blank"
-              className="after:content-['_↗'] hover:text-blue-800 hover:underline underline-offset-1"
+              className=" flex items-center gap-2 hover:text-blue-800 hover:underline underline-offset-1"
             >
               https://encore-iaxq.onrender.com/home
+              <FaExternalLinkAlt />
             </Link>
             <div className="mt-5">
-              <div className="m-1 inline-flex items-center rounded border border-neutral-200 bg-neutral-50 p-1 text-sm leading-4 text-neutral-900 no-underline dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100 gap-1">
+              <div className="m-1 inline-flex items-center rounded border border-neutral-200 bg-neutral-50 p-1 text-sm leading-4 text-neutral-900  dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100 gap-1">
                 <FaNodeJs className="text-emerald-500 text-lg" />
                 NodeJS
               </div>
-              <div className="m-1 inline-flex items-center rounded border border-neutral-200 bg-neutral-50 p-1 text-sm leading-4 text-neutral-900 no-underline dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100 gap-1">
+              <div className="m-1 inline-flex items-center rounded border border-neutral-200 bg-neutral-50 p-1 text-sm leading-4 text-neutral-900  dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100 gap-1">
                 <SiExpress className="text-lg" />
                 ExpressJs
               </div>
-              <div className="m-1 mb-4 inline-flex items-center rounded border border-neutral-200 bg-neutral-50 p-1 text-sm leading-4 text-neutral-900 no-underline dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100 gap-1">
+              <div className="m-1 mb-4 inline-flex items-center rounded border border-neutral-200 bg-neutral-50 p-1 text-sm leading-4 text-neutral-900  dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100 gap-1">
                 <SiMongodb className="text-lg text-emerald-400" />
                 MongoDB
               </div>
@@ -249,7 +252,7 @@ function Main() {
             <Image
               height={800}
               width={800}
-              className="outline outline-2 outline-offset-4 outline-gray-400 dark:outline-gray-700 rounded-lg aspect-video object-cover object-center w-11/12 mx-auto hover:opacity-50"
+              className="outline outline-2 outline-offset-4 outline-gray-400 dark:outline-gray-700 rounded-lg aspect-video object-cover object-center w-11/12 mx-auto"
               src="/images/e_cell.png"
               alt="Varun"
             />
@@ -262,20 +265,20 @@ function Main() {
             <Link
               href="https://e-cell-ebon.vercel.app/"
               target="_blank"
-              className="after:content-['_↗'] hover:text-blue-800 hover:underline underline-offset-1"
+              className="flex items-center gap-2 hover:text-blue-800 hover:underline underline-offset-1"
             >
-              https://e-cell-ebon.vercel.app/
+              https://e-cell-ebon.vercel.app/ <FaExternalLinkAlt />
             </Link>
             <div className="mt-5">
-              <div className="m-1 inline-flex items-center rounded border border-neutral-200 bg-neutral-50 p-1 text-sm leading-4 text-neutral-900 no-underline dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100 gap-1">
-                <RiNextjsLine className="text-lg"/>
+              <div className="m-1 inline-flex items-center rounded border border-neutral-200 bg-neutral-50 p-1 text-sm leading-4 text-neutral-900  dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100 gap-1">
+                <RiNextjsLine className="text-lg" />
                 Nextjs
               </div>
-              <div className="m-1 inline-flex items-center rounded border border-neutral-200 bg-neutral-50 p-1 text-sm leading-4 text-neutral-900 no-underline dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100 gap-1">
+              <div className="m-1 inline-flex items-center rounded border border-neutral-200 bg-neutral-50 p-1 text-sm leading-4 text-neutral-900  dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100 gap-1">
                 <SiTailwindcss className="text-lg text-sky-400" />
                 Tailwind CSS
               </div>
-              <div className="m-1 mb-4 inline-flex items-center rounded border border-neutral-200 bg-neutral-50 p-1 text-sm leading-4 text-neutral-900 no-underline dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100 gap-1">
+              <div className="m-1 mb-4 inline-flex items-center rounded border border-neutral-200 bg-neutral-50 p-1 text-sm leading-4 text-neutral-900  dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100 gap-1">
                 <SiMongodb className="text-lg text-emerald-400" />
                 Mongodb
               </div>
@@ -288,7 +291,7 @@ function Main() {
             <Image
               height={800}
               width={800}
-              className="outline outline-2 outline-offset-4 outline-gray-400 dark:outline-gray-700 rounded-lg aspect-video object-cover object-center w-11/12 mx-auto hover:opacity-50"
+              className="outline outline-2 outline-offset-4 outline-gray-400 dark:outline-gray-700 rounded-lg aspect-video object-cover object-center w-11/12 mx-auto"
               src="/images/audiometer.png"
               alt="Varun"
             />
@@ -303,16 +306,17 @@ function Main() {
             <Link
               href="https://digital-audimeter.vercel.app/"
               target="_blank"
-              className="after:content-['_↗'] hover:text-blue-800 hover:underline underline-offset-1"
+              className=" flex items-center gap-2 hover:text-blue-800 hover:underline underline-offset-1"
             >
               https://digital-audimeter.vercel.app/
+              <FaExternalLinkAlt />
             </Link>
             <div className="mt-5">
-              <div className="m-1 inline-flex items-center rounded border border-neutral-200 bg-neutral-50 p-1 text-sm leading-4 text-neutral-900 no-underline dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100 gap-1">
+              <div className="m-1 inline-flex items-center rounded border border-neutral-200 bg-neutral-50 p-1 text-sm leading-4 text-neutral-900  dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100 gap-1">
                 <FaReact className="text-lg text-cyan-500" />
                 React
               </div>
-              <div className="m-1 mb-4 inline-flex items-center rounded border border-neutral-200 bg-neutral-50 p-1 text-sm leading-4 text-neutral-900 no-underline dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100 gap-1">
+              <div className="m-1 mb-4 inline-flex items-center rounded border border-neutral-200 bg-neutral-50 p-1 text-sm leading-4 text-neutral-900  dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100 gap-1">
                 <SiMongodb className="text-lg text-emerald-400" />
                 MongoDB
               </div>
@@ -325,7 +329,7 @@ function Main() {
             <Image
               height={800}
               width={800}
-              className="outline outline-2 outline-offset-4 outline-gray-400 dark:outline-gray-700 rounded-lg aspect-video object-cover object-center w-11/12 mx-auto hover:opacity-50"
+              className="outline outline-2 outline-offset-4 outline-gray-400 dark:outline-gray-700 rounded-lg aspect-video object-cover object-center w-11/12 mx-auto"
               src="/images/game.png"
               alt="Varun"
             />
@@ -340,20 +344,21 @@ function Main() {
             <Link
               href="https://encore-iaxq.onrender.com/home"
               target="_blank"
-              className="after:content-['_↗'] hover:text-blue-800 hover:underline underline-offset-1"
+              className=" flex items-center gap-2 hover:text-blue-800 hover:underline underline-offset-1"
             >
               https://encore-iaxq.onrender.com/home
+              <FaExternalLinkAlt />
             </Link>
             <div className="mt-5">
-              <div className="m-1 inline-flex items-center rounded border border-neutral-200 bg-neutral-50 p-1 text-sm leading-4 text-neutral-900 no-underline dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100 gap-1">
+              <div className="m-1 inline-flex items-center rounded border border-neutral-200 bg-neutral-50 p-1 text-sm leading-4 text-neutral-900  dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100 gap-1">
                 <FaHtml5 className="text-red-700 text-lg" />
                 HTML
               </div>
-              <div className="m-1 inline-flex items-center rounded border border-neutral-200 bg-neutral-50 p-1 text-sm leading-4 text-neutral-900 no-underline dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100 gap-1">
-              <SiJavascript className="text-lg text-yellow-400" />
-            JavaScript
+              <div className="m-1 inline-flex items-center rounded border border-neutral-200 bg-neutral-50 p-1 text-sm leading-4 text-neutral-900  dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100 gap-1">
+                <SiJavascript className="text-lg text-yellow-400" />
+                JavaScript
               </div>
-              <div className="m-1 mb-4 inline-flex items-center rounded border border-neutral-200 bg-neutral-50 p-1 text-sm leading-4 text-neutral-900 no-underline dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100 gap-1">
+              <div className="m-1 mb-4 inline-flex items-center rounded border border-neutral-200 bg-neutral-50 p-1 text-sm leading-4 text-neutral-900  dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100 gap-1">
                 <SiThealgorithms className="text-lg text-sky-400" />
                 AI Algorithm
               </div>
@@ -361,7 +366,71 @@ function Main() {
           </div>
         </div>
       </div>
-      
+      {/* contact */}
+      <div className="border border-gray-400 dark:border-gray-800 rounded-lg sm:my-2 px-6 py-4 my-2">
+        <div className="w-32 p-1 bg-slate-800 rounded-xl mx-auto text-center font-semibold my-4">
+          Get in touch
+        </div>
+        <div className="text-gray-700 dark:text-gray-400 mt-4 mb-8 sm:w-3/5 mx-auto text-center">
+          What's next? Feel free to reach out me if you're looking for a
+          developer, have aquery, or simply want to connect.
+        </div>
+        <div className="flex items-center justify-center gap-2 sm:gap-4 text-lg sm:text-2xl font-semibold my-4">
+          <div className="text-2xl sm:text-3xl"><HiOutlineMail/></div>
+          <div className="border-l-2 border-gray-400 dark:border-gray-800 px-2 sm:px-4">
+            <div className="flex items-center gap-3">
+              a.varungupta23@gmail.com <TbCopy />
+            </div>
+            <div className="flex items-center gap-3">
+              varunvaatsalya@gmail.com <TbCopy />
+            </div>
+          </div>
+        </div>
+        <hr className="w-3/5 mx-auto border border-gray-400 dark:border-gray-800" />
+        <div className="flex gap-4 items-center justify-center my-4 font-semibold text-2xl">
+          <RiPhoneFill />
+          +91 7800190130 <TbCopy />
+        </div>
+        <div className="mx-auto pt-1 pb-6">
+          <div className="text-center text-gray-700 dark:text-gray-400 my-4">
+            You may also find me on these Platforms!
+          </div>
+          <div className="flex items-center gap-6 justify-center text-gray-700 dark:text-gray-400 text-xl ">
+            <Link
+              className="hover:text-orange-500"
+              href="https://www.linkedin.com/in/varunvaatsalya/"
+              target="_blank"
+              rel="noopener"
+            >
+              <FaLinkedin />
+            </Link>
+            <Link
+              className="hover:text-orange-500"
+              href="https://www.instagram.com/varunvaatsalya/"
+              target="_blank"
+              rel="noopener"
+            >
+              <FaInstagram />
+            </Link>
+            <Link
+              className="hover:text-orange-500"
+              href="https://twitter.com/varunvaatsalya/"
+              target="_blank"
+              rel="noopener"
+            >
+              <RiTwitterXFill />
+            </Link>
+            <Link
+              className="hover:text-orange-500"
+              href="#"
+              target="_blank"
+              rel="noopener"
+            >
+              <FaGithub />
+            </Link>
+          </div>
+        </div>
+      </div>
     </>
   );
 }
