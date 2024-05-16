@@ -196,7 +196,7 @@ function Main() {
               Institute of Engineering & technology, Lucknow - 226021
             </div>
             <div className="flex flex-wrap">
-              <div className="mr-2">Bachelor of Technology - BTech,</div> <div>Computer Science & Engineering</div>
+              <div className="mr-2">Bachelor of Technology - BTech,</div><div>Computer Science & Engineering</div>
             </div>
             <div>Nov 2022 - Sep 2026</div>
           </div>
@@ -381,7 +381,7 @@ function Main() {
             <div className="flex items-center gap-3">
               a.varungupta23@gmail.com <TbCopy />
             </div>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 pl-1">
               varunvaatsalya@gmail.com <TbCopy />
             </div>
           </div>
