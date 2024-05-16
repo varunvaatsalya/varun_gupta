@@ -195,10 +195,10 @@ function Main() {
             <div className="font-semibold text-lg">
               Institute of Engineering & technology, Lucknow - 226021
             </div>
-            <div className="">
-              Bachelor of Technology - BTech, Computer Science & Engineering
+            <div className="flex flex-wrap">
+              <div className="mr-2">Bachelor of Technology - BTech,</div> <div>Computer Science & Engineering</div>
             </div>
-            <div className="">Nov 2022 - Sep 2026</div>
+            <div>Nov 2022 - Sep 2026</div>
           </div>
         </div>
       </div>
@@ -372,7 +372,7 @@ function Main() {
           Get in touch
         </div>
         <div className="text-gray-700 dark:text-gray-400 mt-4 mb-8 sm:w-3/5 mx-auto text-center">
-          What's next? Feel free to reach out me if you're looking for a
+          What&#39;s next? Feel free to reach out me if you&#39;re looking for a
           developer, have aquery, or simply want to connect.
         </div>
         <div className="flex items-center justify-center gap-2 sm:gap-4 text-lg sm:text-2xl font-semibold my-4">
