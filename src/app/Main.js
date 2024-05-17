@@ -31,6 +31,7 @@ import {
 import Link from "next/link";
 import Dropdown from "./DropMenu";
 import { FaMinus, FaPlus } from "react-icons/fa6";
+import AboutContent from "./AboutContent";
 
 function Main() {
   return (
@@ -132,12 +133,6 @@ function Main() {
       </div>
       {/* about */}
       <div className="border bg-zinc-200 dark:bg-gray-950 border-gray-400 dark:border-gray-800 rounded-lg sm:my-2 my-2 h-96">
-        {/* <div className="text-gray-700 dark:text-gray-400 text-xs text-center">
-          Get to Know More
-        </div>
-        <div className="text-3xl font-semibold text-center gradient">
-          About Me
-        </div> */}
         <div className="h-10 bg-zinc-900 rounded-t-lg px-4 flex justify-between">
           <div className="flex gap-2 items-center h-full">
             <div className="relative">
@@ -154,10 +149,11 @@ function Main() {
             </div>
           </div>
           <div className="flex gap-2 items-center text-lg">
-            <GoFileDirectoryFill className="text-sky-500 " /> About Us
+            <GoFileDirectoryFill className="text-sky-500 " /> About_Me.py
           </div>
-          <div className="w-12"></div>
+          <div className="w-16"></div>
         </div>
+        <AboutContent />
       </div>
       {/* skills */}
       <div className="border bg-zinc-200 dark:bg-gray-950 border-gray-400 dark:border-gray-800 rounded-lg sm:my-2 px-6 pt-4 pb-8 my-2">
