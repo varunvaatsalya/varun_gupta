@@ -59,7 +59,7 @@ function AboutContent() {
               <span className="text-white"> = </span>
               <span className="text-orange-700">
                 &#34;Join me on a journey to build the digital backbone that powers
-                tomorrow's most innovative experiences.&#34;
+                tomorrow&#39;s most innovative experiences.&#34;
               </span>
             </div>
             <div className="text-sky-400">
