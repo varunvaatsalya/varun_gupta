@@ -13,8 +13,11 @@ import {
 } from "react-icons/si";
 import { HiOutlineMail } from "react-icons/hi";
 import { TbBrandCpp, TbCopy, TbPointFilled } from "react-icons/tb";
+import { TiArrowUnsorted } from "react-icons/ti";
+import { GoFileDirectoryFill } from "react-icons/go";
 import { RiNextjsLine, RiPhoneFill, RiTwitterXFill } from "react-icons/ri";
 import {
+  FaCircle,
   FaExternalLinkAlt,
   FaGitAlt,
   FaGithub,
@@ -27,14 +30,26 @@ import {
 } from "react-icons/fa";
 import Link from "next/link";
 import Dropdown from "./DropMenu";
+import { FaMinus, FaPlus } from "react-icons/fa6";
 
 function Main() {
   return (
     <>
       {/* profile */}
       <div className="border bg-zinc-200 dark:bg-gray-950 border-gray-400 dark:border-gray-800 rounded-lg sm:my-2 px-4 py-4 my-2">
-        <div className="w-full h-12 flex justify-end">
-        <Dropdown/>
+        <div className="w-full h-12 flex justify-between items-center">
+          <div className=" inline-flex items-center text-2xl font-bold text-gray-700 dark:text-gray-400 rounded-full pl-4">
+            &#60;
+            <Image
+              height={800}
+              width={800}
+              src="/images/profilelogo.png"
+              alt="pfp"
+              className="w-12 h-12"
+            />
+            /&#62;
+          </div>
+          <Dropdown />
         </div>
         <hr className="border-1 border-gray-400 dark:border-gray-800 my-2" />
         <div className="sm:flex">
@@ -116,13 +131,39 @@ function Main() {
         </div>
       </div>
       {/* about */}
-      <div className="border bg-zinc-200 dark:bg-gray-950 border-gray-400 dark:border-gray-800 rounded-lg sm:my-2 px-6 py-8 my-2 h-96">
-      <div className="text-3xl font-semibold text-center gradient">
-          About Us
+      <div className="border bg-zinc-200 dark:bg-gray-950 border-gray-400 dark:border-gray-800 rounded-lg sm:my-2 my-2 h-96">
+        {/* <div className="text-gray-700 dark:text-gray-400 text-xs text-center">
+          Get to Know More
+        </div>
+        <div className="text-3xl font-semibold text-center gradient">
+          About Me
+        </div> */}
+        <div className="h-10 bg-zinc-900 rounded-t-lg px-4 flex justify-between">
+          <div className="flex gap-2 items-center h-full">
+            <div className="relative">
+              <FaCircle className="text-red-500" />
+              <FaPlus className="absolute rotate-45 top-0 text-red-500 hover:text-red-900" />
+            </div>
+            <div className="relative">
+              <FaCircle className="text-yellow-500" />
+              <FaMinus className="absolute top-0 text-yellow-500 hover:text-yellow-900" />
+            </div>
+            <div className="relative">
+              <FaCircle className="text-green-500" />
+              <TiArrowUnsorted className="absolute rotate-45 top-0 text-green-500 hover:text-green-900" />
+            </div>
+          </div>
+          <div className="flex gap-2 items-center text-lg">
+            <GoFileDirectoryFill className="text-sky-500 " /> About Us
+          </div>
+          <div className="w-12"></div>
         </div>
       </div>
       {/* skills */}
-      <div className="border bg-zinc-200 dark:bg-gray-950 border-gray-400 dark:border-gray-800 rounded-lg sm:my-2 px-6 py-8 my-2">
+      <div className="border bg-zinc-200 dark:bg-gray-950 border-gray-400 dark:border-gray-800 rounded-lg sm:my-2 px-6 pt-4 pb-8 my-2">
+        <div className="text-gray-700 dark:text-gray-400 text-xs text-center">
+          Explore my
+        </div>
         <div className="text-3xl font-semibold text-center gradient">
           Skills
         </div>
@@ -205,7 +246,8 @@ function Main() {
               Institute of Engineering & technology, Lucknow - 226021
             </div>
             <div className="flex flex-wrap">
-              <div className="mr-2">Bachelor of Technology - BTech,</div><div>Computer Science & Engineering</div>
+              <div className="mr-2">Bachelor of Technology - BTech,</div>
+              <div>Computer Science & Engineering</div>
             </div>
             <div>Nov 2022 - Sep 2026</div>
           </div>
@@ -213,6 +255,9 @@ function Main() {
       </div>
       {/* projects */}
       <div className="border bg-zinc-200 dark:bg-gray-950 border-gray-400 dark:border-gray-800 rounded-lg sm:my-2 px-6 py-4 my-2">
+        <div className="text-gray-700 dark:text-gray-400 text-xs text-center">
+          Browse My Recent
+        </div>
         <div className="text-3xl font-semibold text-center gradient">
           Projects
         </div>
@@ -377,15 +422,20 @@ function Main() {
       </div>
       {/* contact */}
       <div className="border bg-zinc-200 dark:bg-gray-950 border-gray-400 dark:border-gray-800 rounded-lg sm:my-2 px-6 py-4 my-2">
-        <div className="w-32 p-1 bg-gradient text-slate-100 rounded-xl mx-auto text-center font-semibold my-4">
+        <div className="w-32 p-1 bg-gradient text-slate-100 rounded-xl mx-auto text-center font-semibold mt-4">
           Get in touch
+        </div>
+        <div className="text-gray-700 dark:text-gray-400 text-xs text-center mb-4 mt-1">
+          With Me
         </div>
         <div className="text-gray-700 dark:text-gray-400 mt-4 mb-8 sm:w-3/5 mx-auto text-center">
           What&#39;s next? Feel free to reach out me if you&#39;re looking for a
           developer, have aquery, or simply want to connect.
         </div>
         <div className="flex items-center justify-center gap-2 sm:gap-4 text-lg sm:text-2xl font-semibold my-4">
-          <div className="text-2xl sm:text-3xl"><HiOutlineMail/></div>
+          <div className="text-2xl sm:text-3xl">
+            <HiOutlineMail />
+          </div>
           <div className="border-l-2 border-gray-400 dark:border-gray-800 px-2 sm:px-4">
             <div className="flex items-center gap-3">
               a.varungupta23@gmail.com <TbCopy />
