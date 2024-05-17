@@ -34,6 +34,11 @@ export default function Dropdown() {
             <button className="w-full h-8 rounded-lg hover hover:bg-red-500 text-red-500 hover:text-gray-50">
               Delete
             </button>
+            <hr className="border-gray-400 dark:border-gray-700 w-4/5 mx-auto hidden max-lg:block" />
+            <a href="https://drive.google.com/file/d/1vT4Hg6EnMgabccPks2AA8jb3fLt-fDJd/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+            <button className="w-full h-8 rounded-lg hover hover:bg-pink-500 text-pink-500 hover:text-gray-50 hidden max-lg:block">
+              Download CV
+            </button></a>
           </div>
         </>
       </div>

@@ -13,8 +13,6 @@ import {
 } from "react-icons/si";
 import { HiOutlineMail } from "react-icons/hi";
 import { TbBrandCpp, TbCopy, TbPointFilled } from "react-icons/tb";
-import { TiArrowUnsorted } from "react-icons/ti";
-import { GoFileDirectoryFill } from "react-icons/go";
 import { RiNextjsLine, RiPhoneFill, RiTwitterXFill } from "react-icons/ri";
 import {
   FaCircle,
@@ -30,8 +28,12 @@ import {
 } from "react-icons/fa";
 import Link from "next/link";
 import Dropdown from "./DropMenu";
-import { FaMinus, FaPlus } from "react-icons/fa6";
+import { FaMinus, FaPlay, FaPlus } from "react-icons/fa6";
 import AboutContent from "./AboutContent";
+import ContentCopyBtn from "./ContentCopyBtn";
+import TypeWriter from "./CodeRun";
+import SentenceList from "./CodeRun";
+import About from "./About";
 
 function Main() {
   return (
@@ -132,29 +134,7 @@ function Main() {
         </div>
       </div>
       {/* about */}
-      <div className="border bg-gray-950 border-gray-400 dark:border-gray-800 rounded-lg sm:my-2 my-2">
-        <div className="h-10 bg-zinc-900 rounded-t-lg px-4 flex justify-between">
-          <div className="flex gap-2 items-center h-full">
-            <div className="relative">
-              <FaCircle className="text-red-500" />
-              <FaPlus className="absolute rotate-45 top-0 text-red-500 hover:text-red-900" />
-            </div>
-            <div className="relative">
-              <FaCircle className="text-yellow-500" />
-              <FaMinus className="absolute top-0 text-yellow-500 hover:text-yellow-900" />
-            </div>
-            <div className="relative">
-              <FaCircle className="text-green-500" />
-              <TiArrowUnsorted className="absolute rotate-45 top-0 text-green-500 hover:text-green-900" />
-            </div>
-          </div>
-          <div className="flex gap-2 items-center text-lg text-gray-100">
-            <GoFileDirectoryFill className="text-sky-500 " /> About_Me.py
-          </div>
-          <div className="w-16"></div>
-        </div>
-        <AboutContent />
-      </div>
+      <About/>
       {/* skills */}
       <div className="border bg-zinc-200 dark:bg-gray-950 border-gray-400 dark:border-gray-800 rounded-lg sm:my-2 px-6 pt-4 pb-8 my-2">
         <div className="text-gray-700 dark:text-gray-400 text-xs text-center">
@@ -434,17 +414,17 @@ function Main() {
           </div>
           <div className="border-l-2 border-gray-400 dark:border-gray-800 px-2 sm:px-4">
             <div className="flex items-center gap-3">
-              a.varungupta23@gmail.com <TbCopy />
+              a.varungupta23@gmail.com <ContentCopyBtn copy={"email1"} />
             </div>
             <div className="flex items-center gap-3 pl-1">
-              varunvaatsalya@gmail.com <TbCopy />
+              varunvaatsalya@gmail.com <ContentCopyBtn copy={"email2"} />
             </div>
           </div>
         </div>
         <hr className="w-3/5 mx-auto border border-gray-400 dark:border-gray-800" />
         <div className="flex gap-4 items-center justify-center my-4 font-semibold text-2xl">
           <RiPhoneFill />
-          +91 7800190130 <TbCopy />
+          +91 7800190130 <ContentCopyBtn copy={"phone"} />
         </div>
         <div className="mx-auto pt-1 pb-6">
           <div className="text-center text-gray-700 dark:text-gray-400 my-4">

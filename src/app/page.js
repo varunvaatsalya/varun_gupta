@@ -31,3 +31,5 @@ export function generateMetadata({ params }) {
       "This Portfolio website is owned by Varun Gupta who is a Backend Developer",
   };
 }
+
+
