@@ -71,10 +71,7 @@ function Main() {
               @varunvaatsalya
             </div>
             <div className="text-gray-700 dark:text-gray-400 mt-1 mb-6">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero,
-              iusto! Ex tenetur eius modi voluptates molestias ullam quisquam
-              totam vel vitae, delectus sapiente recusandae explicabo nostrum
-              placeat nisi architecto temporibus ipsum quis. Aut, iure.
+            One who knows frontend is a frontend developer, one who knows backend is a backend developer and one who doesn't know both is a full stack developer, - JK<br /> Hi there!👋 I'm a full-stack developer who enjoys dabbling in both frontend and backend, but let's be real – the backend is where the magic (and my heart) truly resides. I like my code like I like my coffee: strong, efficient, and keeping everything running smoothly behind the scenes.
             </div>
             <div className="flex items-center gap-1 text-gray-700 dark:text-gray-400 my-1">
               <CiLocationOn className="text-lg" /> Lucknow, India
