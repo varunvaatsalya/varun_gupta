@@ -15,7 +15,6 @@ import { HiOutlineMail } from "react-icons/hi";
 import { TbBrandCpp, TbCopy, TbPointFilled } from "react-icons/tb";
 import { RiNextjsLine, RiPhoneFill, RiTwitterXFill } from "react-icons/ri";
 import {
-  FaCircle,
   FaExternalLinkAlt,
   FaGitAlt,
   FaGithub,
@@ -28,11 +27,7 @@ import {
 } from "react-icons/fa";
 import Link from "next/link";
 import Dropdown from "./DropMenu";
-import { FaMinus, FaPlay, FaPlus } from "react-icons/fa6";
-import AboutContent from "./AboutContent";
 import ContentCopyBtn from "./ContentCopyBtn";
-import TypeWriter from "./CodeRun";
-import SentenceList from "./CodeRun";
 import About from "./About";
 
 function Main() {
@@ -230,7 +225,7 @@ function Main() {
         </div>
       </div>
       {/* projects */}
-      <div className="border bg-zinc-200 dark:bg-gray-950 border-gray-400 dark:border-gray-800 rounded-lg sm:my-2 px-6 py-4 my-2">
+      <div id="projects" className="border bg-zinc-200 dark:bg-gray-950 border-gray-400 dark:border-gray-800 rounded-lg sm:my-2 px-6 py-4 my-2">
         <div className="text-gray-700 dark:text-gray-400 text-xs text-center">
           Browse My Recent
         </div>
@@ -397,7 +392,7 @@ function Main() {
         </div>
       </div>
       {/* contact */}
-      <div className="border bg-zinc-200 dark:bg-gray-950 border-gray-400 dark:border-gray-800 rounded-lg sm:my-2 px-6 py-4 my-2">
+      <div id="contact" className="border bg-zinc-200 dark:bg-gray-950 border-gray-400 dark:border-gray-800 rounded-lg sm:my-2 px-6 py-4 my-2">
         <div className="w-32 p-1 bg-gradient text-slate-100 rounded-xl mx-auto text-center font-semibold mt-4">
           Get in touch
         </div>

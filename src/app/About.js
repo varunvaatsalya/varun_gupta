@@ -32,7 +32,7 @@ function About() {
           <div className="flex gap-2 items-center text-lg text-gray-100">
             <GoFileDirectoryFill className="text-sky-500 " /> About_Me.py
           </div>
-          <div className=" flex items-center gap-2">
+          <div className="text-gray-100 flex items-center gap-2">
             <div>
               <ContentCopyBtn copy={"code"} />
             </div>
