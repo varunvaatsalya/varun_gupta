@@ -364,11 +364,11 @@ function Main() {
               AI Algorithm Based never winning tic tac toe game
             </div>
             <Link
-              href="https://encore-iaxq.onrender.com/home"
+              href="https://tic-tac-toe-sigma-sable.vercel.app/"
               target="_blank"
               className=" flex items-center gap-2 hover:text-blue-800 hover:underline underline-offset-1"
             >
-              https://encore-iaxq.onrender.com/home
+              https://tic-tac-toe-sigma-sable.vercel.app/
               <FaExternalLinkAlt />
             </Link>
             <div className="mt-5">
