@@ -7,13 +7,16 @@ import {
   SiGmail,
   SiJavascript,
   SiMongodb,
+  SiSelenium,
   SiSocketdotio,
   SiTailwindcss,
   SiThealgorithms,
+  SiTypescript,
 } from "react-icons/si";
 import { HiOutlineMail } from "react-icons/hi";
 import { TbBrandCpp, TbCopy, TbPointFilled } from "react-icons/tb";
 import { RiNextjsLine, RiPhoneFill, RiTwitterXFill } from "react-icons/ri";
+import { GrDocker } from "react-icons/gr";
 import {
   FaExternalLinkAlt,
   FaGitAlt,
@@ -141,6 +144,10 @@ function Main() {
             JavaScript
           </div>
           <div className="text-center">
+            <SiTypescript className="mx-auto text-6xl text-sky-400" />
+            TypeScript
+          </div>
+          <div className="text-center">
             <FaReact className="mx-auto text-6xl text-cyan-500" />
             React
           </div>
@@ -169,12 +176,20 @@ function Main() {
             Python
           </div>
           <div className="text-center">
+            <SiSelenium className="mx-auto text-6xl text-green-400" />
+            Selenium
+          </div>
+          <div className="text-center">
             <SiMongodb className="mx-auto text-6xl text-emerald-400" />
             Mongodb
           </div>
           <div className="text-center">
             <SiTailwindcss className="mx-auto text-6xl text-sky-400" />
             Tailwind CSS
+          </div>
+          <div className="text-center">
+            <GrDocker className="mx-auto text-6xl text-blue-400" />
+            Docker
           </div>
           <div className="text-center">
             <FaGitAlt className="mx-auto text-6xl text-red-500" />
