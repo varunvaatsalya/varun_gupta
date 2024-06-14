@@ -187,10 +187,10 @@ function Main() {
             <SiTailwindcss className="mx-auto text-6xl text-sky-400" />
             Tailwind CSS
           </div>
-          <div className="text-center">
+          {/* <div className="text-center">
             <GrDocker className="mx-auto text-6xl text-blue-400" />
             Docker
-          </div>
+          </div> */}
           <div className="text-center">
             <FaGitAlt className="mx-auto text-6xl text-red-500" />
             Git
