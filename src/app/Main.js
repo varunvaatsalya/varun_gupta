@@ -34,9 +34,7 @@ import Dropdown from "./DropMenu";
 import ContentCopyBtn from "./ContentCopyBtn";
 import About from "./About";
 
-async function Main() {
-  let data = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/users`);
-  data = await data.json();
+function Main() {
   return (
     <>
       {/* profile */}
@@ -71,7 +69,7 @@ async function Main() {
               hey, this is
             </div>
             <div className="text-4xl font-semibold text-orange-500 gradient">
-            {data.name}
+            Varun Gupta
             </div>
             <div className="text-2xl font-medium text-orange-500 gradient-invert">
               @varunvaatsalya
