@@ -35,7 +35,7 @@ import ContentCopyBtn from "./ContentCopyBtn";
 import About from "./About";
 
 async function Main() {
-  let data = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/users`);
+  let data = await fetch(`/api/users`);
   data = await data.json();
   return (
     <>
