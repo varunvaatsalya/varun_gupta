@@ -33,6 +33,7 @@ import Link from "next/link";
 import Dropdown from "./DropMenu";
 import ContentCopyBtn from "./ContentCopyBtn";
 import About from "./About";
+import CoMain from "./CoMain";
 
 function Main() {
   return (
@@ -69,13 +70,20 @@ function Main() {
               hey, this is
             </div>
             <div className="text-4xl font-semibold text-orange-500 gradient">
-            Varun Gupta
+              Varun Gupta
             </div>
             <div className="text-2xl font-medium text-orange-500 gradient-invert">
               @varunvaatsalya
             </div>
             <div className="text-gray-700 dark:text-gray-400 mt-1 mb-6">
-            One who knows frontend is a frontend developer, one who knows backend is a backend developer and one who doesn&#39;t know both is a full stack developer, - JK<br /> Hi there!👋 I&#39;m a full-stack developer who enjoys dabbling in both frontend and backend, but let&#39;s be real – the backend is where the magic (and my heart) truly resides. I like my code like I like my coffee: strong, efficient, and keeping everything running smoothly behind the scenes.
+              One who knows frontend is a frontend developer, one who knows
+              backend is a backend developer and one who doesn&#39;t know both
+              is a full stack developer, - JK
+              <br /> Hi there!👋 I&#39;m a full-stack developer who enjoys
+              dabbling in both frontend and backend, but let&#39;s be real – the
+              backend is where the magic (and my heart) truly resides. I like my
+              code like I like my coffee: strong, efficient, and keeping
+              everything running smoothly behind the scenes.
             </div>
             <div className="flex items-center gap-1 text-gray-700 dark:text-gray-400 my-1">
               <CiLocationOn className="text-lg" /> Lucknow, India
@@ -130,7 +138,12 @@ function Main() {
         </div>
       </div>
       {/* about */}
-      <About/>
+      <About />
+
+      {/* fiverr component for mobile device*/}
+      <div className="lg:hidden">
+        <CoMain />
+      </div>
       {/* skills */}
       <div className="border bg-zinc-200 dark:bg-gray-950 border-gray-400 dark:border-gray-800 rounded-lg sm:my-2 px-6 pt-4 pb-8 my-2">
         <div className="text-gray-700 dark:text-gray-400 text-xs text-center">
@@ -242,7 +255,10 @@ function Main() {
         </div>
       </div>
       {/* projects */}
-      <div id="projects" className="border bg-zinc-200 dark:bg-gray-950 border-gray-400 dark:border-gray-800 rounded-lg sm:my-2 px-6 py-4 my-2">
+      <div
+        id="projects"
+        className="border bg-zinc-200 dark:bg-gray-950 border-gray-400 dark:border-gray-800 rounded-lg sm:my-2 px-6 py-4 my-2"
+      >
         <div className="text-gray-700 dark:text-gray-400 text-xs text-center">
           Browse My Recent
         </div>
@@ -409,7 +425,10 @@ function Main() {
         </div>
       </div>
       {/* contact */}
-      <div id="contact" className="border bg-zinc-200 dark:bg-gray-950 border-gray-400 dark:border-gray-800 rounded-lg sm:my-2 px-6 py-4 my-2">
+      <div
+        id="contact"
+        className="border bg-zinc-200 dark:bg-gray-950 border-gray-400 dark:border-gray-800 rounded-lg sm:my-2 px-6 py-4 my-2"
+      >
         <div className="w-32 p-1 bg-gradient text-slate-100 rounded-xl mx-auto text-center font-semibold mt-4">
           Get in touch
         </div>
