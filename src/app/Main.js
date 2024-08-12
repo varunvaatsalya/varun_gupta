@@ -7,6 +7,7 @@ import {
   SiGmail,
   SiJavascript,
   SiMongodb,
+  SiReact,
   SiSelenium,
   SiSocketdotio,
   SiTailwindcss,
@@ -14,7 +15,7 @@ import {
   SiTypescript,
 } from "react-icons/si";
 import { HiOutlineMail } from "react-icons/hi";
-import { TbBrandCpp, TbCopy, TbPointFilled } from "react-icons/tb";
+import { TbBrandCpp, TbPointFilled } from "react-icons/tb";
 import { RiNextjsLine, RiPhoneFill, RiTwitterXFill } from "react-icons/ri";
 import { GrDocker } from "react-icons/gr";
 import {
@@ -33,7 +34,9 @@ import Dropdown from "./DropMenu";
 import ContentCopyBtn from "./ContentCopyBtn";
 import About from "./About";
 
-function Main() {
+async function Main() {
+  let data = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/users`);
+  data = await data.json();
   return (
     <>
       {/* profile */}
@@ -68,7 +71,7 @@ function Main() {
               hey, this is
             </div>
             <div className="text-4xl font-semibold text-orange-500 gradient">
-              Varun Gupta
+            {data.name}
             </div>
             <div className="text-2xl font-medium text-orange-500 gradient-invert">
               @varunvaatsalya
@@ -150,6 +153,10 @@ function Main() {
           <div className="text-center">
             <FaReact className="mx-auto text-6xl text-cyan-500" />
             React
+          </div>
+          <div className="text-center">
+            <SiReact className="mx-auto text-6xl text-cyan-400" />
+            React Native
           </div>
           <div className="text-center">
             <RiNextjsLine className="mx-auto text-6xl" />
