@@ -7,9 +7,11 @@ import {
   SiGmail,
   SiJavascript,
   SiMongodb,
+  SiPrisma,
   SiReact,
   SiSelenium,
   SiSocketdotio,
+  SiSqlite,
   SiTailwindcss,
   SiThealgorithms,
   SiTypescript,
@@ -18,6 +20,7 @@ import { HiOutlineMail } from "react-icons/hi";
 import { TbBrandCpp, TbPointFilled } from "react-icons/tb";
 import { RiNextjsLine, RiPhoneFill, RiTwitterXFill } from "react-icons/ri";
 import { GrDocker } from "react-icons/gr";
+import { BiLogoPostgresql } from "react-icons/bi";
 import {
   FaExternalLinkAlt,
   FaGitAlt,
@@ -202,8 +205,20 @@ function Main() {
             Mongodb
           </div>
           <div className="text-center">
+            <BiLogoPostgresql className="mx-auto text-6xl text-sky-500" />
+            Postgresql
+          </div>
+          <div className="text-center">
+            <SiSqlite className="mx-auto text-6xl text-sky-700" />
+            Sqlite
+          </div>
+          <div className="text-center">
             <SiTailwindcss className="mx-auto text-6xl text-sky-400" />
             Tailwind CSS
+          </div>
+          <div className="text-center">
+            <SiPrisma className="mx-auto text-6xl text-teal-900" />
+            Prisma
           </div>
           <div className="text-center">
             <GrDocker className="mx-auto text-6xl text-blue-400" />
