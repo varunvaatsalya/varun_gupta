@@ -6,7 +6,7 @@
  * @see https://schema.org/WebPage
  */
 
-const BASE_URL = "https://varunvaatsalya.vercel.app";
+const BASE_URL = "https://varunvaatsalya.me";
 
 const personSchema = {
   "@context": "https://schema.org",

@@ -9,7 +9,7 @@ const roboto = Roboto({
   preload: true,
 });
 
-const BASE_URL = "https://varunvaatsalya.vercel.app";
+const BASE_URL = "https://varunvaatsalya.me";
 
 export const metadata = {
   metadataBase: new URL(BASE_URL),

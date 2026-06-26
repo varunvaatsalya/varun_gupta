@@ -4,7 +4,7 @@
  * @see https://nextjs.org/docs/app/api-reference/file-conventions/metadata/sitemap
  */
 
-const BASE_URL = "https://varunvaatsalya.vercel.app";
+const BASE_URL = "https://varunvaatsalya.me";
 
 /** @returns {import('next').MetadataRoute.Sitemap} */
 export default function sitemap() {

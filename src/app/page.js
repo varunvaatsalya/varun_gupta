@@ -1,7 +1,7 @@
 import Main from "../components/Main";
 import CoMain from "../components/CoMain";
 
-const BASE_URL = "https://varunvaatsalya.vercel.app";
+const BASE_URL = "https://varunvaatsalya.me";
 
 // Static metadata export (preferred for static pages in App Router)
 export const metadata = {
