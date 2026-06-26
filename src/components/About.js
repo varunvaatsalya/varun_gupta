@@ -2,7 +2,7 @@
 
 import { TiArrowUnsorted } from "react-icons/ti";
 import { GoFileDirectoryFill } from "react-icons/go";
-import ContentCopyBtn from "./ContentCopyBtn";
+// import ContentCopyBtn from "../app/ContentCopyBtn";
 import SentenceList from "./CodeRun";
 import AboutContent from "./AboutContent";
 import { FaCircle, FaCode, FaMinus, FaPlay, FaPlus } from "react-icons/fa";
@@ -33,9 +33,9 @@ function About() {
             <GoFileDirectoryFill className="text-sky-500 " /> About_Me.py
           </div>
           <div className="text-gray-100 flex items-center gap-2">
-            <div>
+            {/* <div>
               <ContentCopyBtn copy={"code"} />
-            </div>
+            </div> */}
             <button
               className="h-6 px-2 rounded-lg text-sm flex gap-2 items-center border border-gray-500"
               onClick={() => {

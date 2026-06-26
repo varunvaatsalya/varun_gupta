@@ -1,0 +1,298 @@
+{
+  "profile": {
+    "logoImage": "/images/profilelogo.png",
+    "profileImage": "/images/profile.jpg",
+    "greeting": "hey, this is",
+    "name": "Varun Gupta",
+    "username": "@varunvaatsalya",
+    "bio": [
+      "One who knows frontend is a frontend developer, one who knows backend is a backend developer and one who doesn't know both is a full stack developer, - JK",
+      "Hi there! I'm a full-stack developer who enjoys dabbling in both frontend and backend, but let's be real - the backend is where the magic (and my heart) truly resides. I like my code like I like my coffee: strong, efficient, and keeping everything running smoothly behind the scenes."
+    ],
+    "location": "Lucknow, India",
+    "availability": "Available for new projects",
+    "socials": [
+      {
+        "label": "LinkedIn",
+        "href": "https://www.linkedin.com/in/varunvaatsalya/",
+        "icon": "linkedin"
+      },
+      {
+        "label": "Instagram",
+        "href": "https://www.instagram.com/varunvaatsalya/",
+        "icon": "instagram"
+      },
+      {
+        "label": "Twitter",
+        "href": "https://twitter.com/varunvaatsalya/",
+        "icon": "twitter"
+      },
+      {
+        "label": "GitHub",
+        "href": "https://github.com/varunvaatsalya/",
+        "icon": "github"
+      },
+      {
+        "label": "Gmail",
+        "href": "https://mail.google.com/mail/u/0/?view=cm&fs=1&to=varunvaatsalya@gmail.com&tf=1",
+        "icon": "gmail"
+      }
+    ]
+  },
+  "skills": [
+    {
+      "name": "JavaScript",
+      "icon": "javascript",
+      "iconClassName": "text-yellow-400"
+    },
+    {
+      "name": "TypeScript",
+      "icon": "typescript",
+      "iconClassName": "text-sky-400"
+    },
+    {
+      "name": "React",
+      "icon": "react",
+      "iconClassName": "text-cyan-500"
+    },
+    {
+      "name": "React Native",
+      "icon": "reactNative",
+      "iconClassName": "text-cyan-400"
+    },
+    {
+      "name": "Nextjs",
+      "icon": "nextjs",
+      "iconClassName": ""
+    },
+    {
+      "name": "NodeJs",
+      "icon": "nodejs",
+      "iconClassName": "text-emerald-500"
+    },
+    {
+      "name": "ExpressJs",
+      "icon": "express",
+      "iconClassName": ""
+    },
+    {
+      "name": "Socket.io",
+      "icon": "socketio",
+      "iconClassName": ""
+    },
+    {
+      "name": "Django",
+      "icon": "django",
+      "iconClassName": "text-emerald-800"
+    },
+    {
+      "name": "Python",
+      "icon": "python",
+      "iconClassName": ""
+    },
+    {
+      "name": "Selenium",
+      "icon": "selenium",
+      "iconClassName": "text-green-400"
+    },
+    {
+      "name": "Mongodb",
+      "icon": "mongodb",
+      "iconClassName": "text-emerald-400"
+    },
+    {
+      "name": "Postgresql",
+      "icon": "postgresql",
+      "iconClassName": "text-sky-500"
+    },
+    {
+      "name": "Sqlite",
+      "icon": "sqlite",
+      "iconClassName": "text-sky-700"
+    },
+    {
+      "name": "Tailwind CSS",
+      "icon": "tailwind",
+      "iconClassName": "text-sky-400"
+    },
+    {
+      "name": "Prisma",
+      "icon": "prisma",
+      "iconClassName": "text-teal-900"
+    },
+    {
+      "name": "Docker",
+      "icon": "docker",
+      "iconClassName": "text-blue-400"
+    },
+    {
+      "name": "Git",
+      "icon": "git",
+      "iconClassName": "text-red-500"
+    },
+    {
+      "name": "Github",
+      "icon": "github",
+      "iconClassName": ""
+    },
+    {
+      "name": "C++",
+      "icon": "cpp",
+      "iconClassName": ""
+    },
+    {
+      "name": "Canva",
+      "icon": "canva",
+      "iconClassName": "text-cyan-600"
+    }
+  ],
+  "education": [
+    {
+      "institution": "Institute of Engineering & Technology, Lucknow - 226021",
+      "degree": "Bachelor of Technology - BTech",
+      "field": "Computer Science & Engineering",
+      "duration": "Nov 2022 - Sep 2026",
+      "image": "/images/ietlucknow.png",
+      "imageAlt": "IET"
+    }
+  ],
+  "projects": [
+    {
+      "name": "ENCORE",
+      "description": "IET Lucknow's Biggest College Cultural Fest Website",
+      "href": "https://encore-iaxq.onrender.com/home",
+      "image": "/images/encore.png",
+      "imageAlt": "ENCORE",
+      "reverse": false,
+      "technologies": [
+        {
+          "name": "NodeJS",
+          "icon": "nodejs",
+          "iconClassName": "text-emerald-500"
+        },
+        {
+          "name": "ExpressJs",
+          "icon": "express",
+          "iconClassName": ""
+        },
+        {
+          "name": "MongoDB",
+          "icon": "mongodb",
+          "iconClassName": "text-emerald-400"
+        }
+      ]
+    },
+    {
+      "name": "E-CELL",
+      "description": "IET Lucknow's Official E-CELL Website",
+      "href": "https://e-cell-ebon.vercel.app/",
+      "image": "/images/e_cell.png",
+      "imageAlt": "E-CELL",
+      "reverse": true,
+      "technologies": [
+        {
+          "name": "Nextjs",
+          "icon": "nextjs",
+          "iconClassName": ""
+        },
+        {
+          "name": "Tailwind CSS",
+          "icon": "tailwind",
+          "iconClassName": "text-sky-400"
+        },
+        {
+          "name": "Mongodb",
+          "icon": "mongodb",
+          "iconClassName": "text-emerald-400"
+        }
+      ]
+    },
+    {
+      "name": "Audiometer",
+      "description": "App Based Digital audiometer",
+      "href": "https://digital-audimeter.vercel.app/",
+      "image": "/images/audiometer.png",
+      "imageAlt": "Audiometer",
+      "reverse": false,
+      "technologies": [
+        {
+          "name": "React",
+          "icon": "react",
+          "iconClassName": "text-cyan-500"
+        },
+        {
+          "name": "MongoDB",
+          "icon": "mongodb",
+          "iconClassName": "text-emerald-400"
+        }
+      ]
+    },
+    {
+      "name": "The Never Winning Game",
+      "description": "AI Algorithm Based never winning tic tac toe game",
+      "href": "https://tic-tac-toe-sigma-sable.vercel.app/",
+      "image": "/images/game.png",
+      "imageAlt": "The Never Winning Game",
+      "reverse": true,
+      "technologies": [
+        {
+          "name": "HTML",
+          "icon": "html",
+          "iconClassName": "text-red-700"
+        },
+        {
+          "name": "JavaScript",
+          "icon": "javascript",
+          "iconClassName": "text-yellow-400"
+        },
+        {
+          "name": "AI Algorithm",
+          "icon": "algorithm",
+          "iconClassName": "text-sky-400"
+        }
+      ]
+    }
+  ],
+  "contact": {
+    "badge": "Get in touch",
+    "subtitle": "With Me",
+    "description": "What's next? Feel free to reach out me if you're looking for a developer, have a query, or simply want to connect.",
+    "emails": [
+      {
+        "value": "a.varungupta23@gmail.com",
+        "copyKey": "email1"
+      },
+      {
+        "value": "varunvaatsalya@gmail.com",
+        "copyKey": "email2"
+      }
+    ],
+    "phone": {
+      "value": "+91 7800190130",
+      "copyKey": "phone"
+    },
+    "socialHeading": "You may also find me on these Platforms!",
+    "socials": [
+      {
+        "label": "LinkedIn",
+        "href": "https://www.linkedin.com/in/varunvaatsalya/",
+        "icon": "linkedin"
+      },
+      {
+        "label": "Instagram",
+        "href": "https://www.instagram.com/varunvaatsalya/",
+        "icon": "instagram"
+      },
+      {
+        "label": "Twitter",
+        "href": "https://twitter.com/varunvaatsalya/",
+        "icon": "twitter"
+      },
+      {
+        "label": "GitHub",
+        "href": "https://github.com/varunvaatsalya/",
+        "icon": "github"
+      }
+    ]
+  }
+}

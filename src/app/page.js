@@ -1,5 +1,5 @@
-import Main from "./Main";
-import CoMain from "./CoMain";
+import Main from "../components/Main";
+import CoMain from "../components/CoMain";
 
 export default function Home() {
   return (

@@ -1,0 +1,30 @@
+[
+  {
+    "slug": "github",
+    "title": "GitHub",
+    "target": "https://github.com/varunvaatsalya",
+    "description": "Varun's GitHub profile",
+    "type": "profile"
+  },
+  {
+    "slug": "linkedin",
+    "title": "LinkedIn",
+    "target": "https://www.linkedin.com/in/varunvaatsalya/",
+    "description": "Varun's LinkedIn profile",
+    "type": "profile"
+  },
+  {
+    "slug": "instagram",
+    "title": "Instagram",
+    "target": "https://www.instagram.com/varunvaatsalya/",
+    "description": "Varun's Instagram profile",
+    "type": "profile"
+  },
+  {
+    "slug": "resume",
+    "title": "Resume",
+    "target": "https://example.com/your-resume.pdf",
+    "description": "Public resume or CV link",
+    "type": "resource"
+  }
+]
