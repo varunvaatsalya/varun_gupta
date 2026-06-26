@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
 
-let flag = true;
 export function GET(Request) {
-  let update = Request.nextUrl.searchParams.get("update");
-  if (update == "1") flag = !flag;
-  return NextResponse.json({ flag: flag, success:true }, { status: 200 });
+  let by = Request.nextUrl.searchParams.get("by");
+  let from = Request.nextUrl.searchParams.get("from");
+  console.log(by, from);
+  return NextResponse.json({ by, from, success:true }, { status: 200 });
 }
