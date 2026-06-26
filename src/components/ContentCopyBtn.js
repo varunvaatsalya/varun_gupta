@@ -5,6 +5,7 @@ import { FaCheck } from "react-icons/fa";
 
 function ContentCopyBtn(props) {
   const [isCopy, setIsCopy] = useState(false);
+
   useEffect(() => {
     if (isCopy) {
       setTimeout(() => {
@@ -12,6 +13,7 @@ function ContentCopyBtn(props) {
       }, 2000);
     }
   }, [isCopy]);
+
   let codeText = `
 class Freelancer:
     def __init__(self):
@@ -40,38 +42,37 @@ if __name__ == "__main__":
     freelancer.display_profile()
 `;
 
+  const contentMap = {
+    code: codeText,
+    email1: "a.varungupta23@gmail.com",
+    email2: "varunvaatsalya@gmail.com",
+    phone: "+917800190130",
+  };
+
   function copyToggle(content) {
-    if ((content == "code")) {
-      navigator.clipboard.writeText(codeText).then(() => {
-        setIsCopy(!isCopy);
-      });
-    } else if ((content == "email1")) {
-      navigator.clipboard.writeText("a.varungupta23@gmail.com").then(() => {
-        setIsCopy(!isCopy);
-      });
-    } else if ((content == "email2")) {
-      navigator.clipboard.writeText("varunvaatsalya@gmail.com").then(() => {
-        setIsCopy(!isCopy);
-      });
-    } else if ((content == "phone")) {
-      navigator.clipboard.writeText("+917800190130").then(() => {
-        setIsCopy(!isCopy);
+    const text = contentMap[content];
+    if (text) {
+      navigator.clipboard.writeText(text).then(() => {
+        setIsCopy(true);
       });
     }
   }
+
   return (
-    <>
+    <button
+      type="button"
+      onClick={() => copyToggle(props.copy)}
+      aria-label={isCopy ? "Copied to clipboard" : "Copy to clipboard"}
+      aria-pressed={isCopy}
+      className="inline-flex items-center"
+      title={isCopy ? "Copied!" : "Copy to clipboard"}
+    >
       {isCopy ? (
-        <FaCheck className="text-green-400" />
+        <FaCheck className="text-green-400" aria-hidden="true" />
       ) : (
-        <TbCopy
-          className="cursor-pointer"
-          onClick={() => {
-            copyToggle(props.copy);
-          }}
-        />
+        <TbCopy className="cursor-pointer" aria-hidden="true" />
       )}
-    </>
+    </button>
   );
 }
 

@@ -64,40 +64,60 @@ function Main() {
 
   return (
     <>
-      <div className="border bg-zinc-200 dark:bg-gray-950 border-gray-400 dark:border-gray-800 rounded-lg sm:my-2 px-4 py-4 my-2">
+      {/* ─── Hero / Profile Card ───────────────────────────────────────── */}
+      <section
+        aria-labelledby="profile-heading"
+        className="border bg-zinc-200 dark:bg-gray-950 border-gray-400 dark:border-gray-800 rounded-lg sm:my-2 px-4 py-4 my-2"
+      >
+        {/* Visually hidden H1 — satisfies heading hierarchy without affecting UI */}
+        <h1 id="profile-heading" className="sr-only">
+          Varun Gupta – Full-Stack Developer Portfolio
+        </h1>
+
         <div className="w-full h-12 flex justify-between items-center">
-          <div className=" inline-flex items-center text-2xl font-bold text-gray-700 dark:text-gray-400 rounded-full pl-4">
+          <div className="inline-flex items-center text-2xl font-bold text-gray-700 dark:text-gray-400 rounded-full pl-4">
             &#60;
             <Image
               height={800}
               width={800}
               src={profile.logoImage}
-              alt="pfp"
+              alt="Varun Gupta profile logo"
               className="w-12 h-12"
+              priority
             />
             /&#62;
           </div>
           <Dropdown />
         </div>
+
         <hr className="border-1 border-gray-400 dark:border-gray-800 my-2" />
+
         <div className="sm:flex">
           <div className="w-3/5 sm:w-1/4 py-8 mx-auto">
             <Image
               height={800}
               width={800}
-              className="outline outline-2 outline-offset-4 outline-gray-400 dark:outline-gray-700 rounded-full aspect-square object-cover object-center w-4/5 mx-auto "
+              className="outline outline-2 outline-offset-4 outline-gray-400 dark:outline-gray-700 rounded-full aspect-square object-cover object-center w-4/5 mx-auto"
               src={profile.profileImage}
-              alt={profile.name}
+              alt={`${profile.name} – Full-Stack Developer`}
+              priority
             />
           </div>
           <div className="sm:w-3/4">
-            <div className="text-gray-700 dark:text-gray-400 my-1">
+            <p className="text-gray-700 dark:text-gray-400 my-1">
               {profile.greeting}
-            </div>
-            <div className="text-4xl font-semibold text-orange-500 gradient">
+            </p>
+            {/* Decorative name — displayed visually; semantic H1 is sr-only above */}
+            <div
+              className="text-4xl font-semibold text-orange-500 gradient"
+              aria-hidden="true"
+            >
               {profile.name}
             </div>
-            <div className="text-2xl font-medium text-orange-500 gradient-invert">
+            <div
+              className="text-2xl font-medium text-orange-500 gradient-invert"
+              aria-hidden="true"
+            >
               {profile.username}
             </div>
             <div className="text-gray-700 dark:text-gray-400 mt-1 mb-6">
@@ -109,13 +129,17 @@ function Main() {
               ))}
             </div>
             <div className="flex items-center gap-1 text-gray-700 dark:text-gray-400 my-1">
-              <CiLocationOn className="text-lg" /> {profile.location}
+              <CiLocationOn className="text-lg" aria-hidden="true" />
+              <span>{profile.location}</span>
             </div>
             <div className="flex items-center gap-1 text-gray-700 dark:text-gray-400">
-              <TbPointFilled className="text-green-400" />
-              {profile.availability}
+              <TbPointFilled className="text-green-400" aria-hidden="true" />
+              <span>{profile.availability}</span>
             </div>
-            <div className="flex items-center gap-3 text-lg text-gray-700 dark:text-gray-400 my-6">
+            <nav
+              className="flex items-center gap-3 text-lg text-gray-700 dark:text-gray-400 my-6"
+              aria-label="Varun Gupta's social profiles"
+            >
               {profile.socials.map((social) => {
                 const Icon = iconMap[social.icon];
 
@@ -125,49 +149,75 @@ function Main() {
                     className="hover:text-orange-500"
                     href={social.href}
                     target="_blank"
-                    rel="noopener"
-                    aria-label={social.label}
+                    rel="noopener noreferrer"
+                    aria-label={`Visit Varun Gupta on ${social.label} (opens in new tab)`}
+                    title={social.label}
                   >
-                    <Icon />
+                    <Icon aria-hidden="true" />
                   </Link>
                 );
               })}
-            </div>
+            </nav>
           </div>
         </div>
-      </div>
+      </section>
 
+      {/* ─── About / Code Section ──────────────────────────────────────── */}
       <About />
 
-      <div className="lg:hidden">
+      {/* ─── Mobile Sidebar ────────────────────────────────────────────── */}
+      <div className="lg:hidden" aria-label="Freelancing sidebar">
         <CoMain />
       </div>
 
-      <div className="border bg-zinc-200 dark:bg-gray-950 border-gray-400 dark:border-gray-800 rounded-lg sm:my-2 px-6 pt-4 pb-8 my-2">
-        <div className="text-gray-700 dark:text-gray-400 text-xs text-center">
+      {/* ─── Skills ────────────────────────────────────────────────────── */}
+      <section
+        id="skills"
+        aria-labelledby="skills-heading"
+        className="border bg-zinc-200 dark:bg-gray-950 border-gray-400 dark:border-gray-800 rounded-lg sm:my-2 px-6 pt-4 pb-8 my-2"
+      >
+        <p className="text-gray-700 dark:text-gray-400 text-xs text-center">
           Explore my
-        </div>
-        <div className="text-3xl font-semibold text-center gradient">
+        </p>
+        <h2
+          id="skills-heading"
+          className="text-3xl font-semibold text-center gradient"
+        >
           Skills
-        </div>
-        <div className="mt-8 px-6 flex flex-wrap justify-center gap-6 text-gray-700 dark:text-gray-300">
+        </h2>
+        <ul
+          className="mt-8 px-6 flex flex-wrap justify-center gap-6 text-gray-700 dark:text-gray-300"
+          aria-label="Technical skills"
+        >
           {skills.map((skill) => {
             const Icon = iconMap[skill.icon];
 
             return (
-              <div key={skill.name} className="text-center">
-                <Icon className={`mx-auto text-6xl ${skill.iconClassName}`} />
-                {skill.name}
-              </div>
+              <li key={skill.name} className="text-center list-none">
+                <Icon
+                  className={`mx-auto text-6xl ${skill.iconClassName}`}
+                  aria-hidden="true"
+                  title={skill.name}
+                />
+                <span>{skill.name}</span>
+              </li>
             );
           })}
-        </div>
-      </div>
+        </ul>
+      </section>
 
-      <div className="border bg-zinc-200 dark:bg-gray-950 border-gray-400 dark:border-gray-800 rounded-lg sm:my-2 px-6 py-4 my-2">
-        <div className="text-2xl font-semibold text-center gradient">
+      {/* ─── Education ─────────────────────────────────────────────────── */}
+      <section
+        id="education"
+        aria-labelledby="education-heading"
+        className="border bg-zinc-200 dark:bg-gray-950 border-gray-400 dark:border-gray-800 rounded-lg sm:my-2 px-6 py-4 my-2"
+      >
+        <h2
+          id="education-heading"
+          className="text-2xl font-semibold text-center gradient"
+        >
           Education
-        </div>
+        </h2>
         {education.map((item) => (
           <div
             key={`${item.institution}-${item.duration}`}
@@ -177,35 +227,41 @@ function Main() {
               <Image
                 height={800}
                 width={800}
-                className="outline outline-2 outline-offset-2 outline-gray-400 dark:outline-gray-700 rounded-full aspect-square object-cover object-center w-4/5 mx-auto "
+                className="outline outline-2 outline-offset-2 outline-gray-400 dark:outline-gray-700 rounded-full aspect-square object-cover object-center w-4/5 mx-auto"
                 src={item.image}
-                alt={item.imageAlt}
+                alt={`${item.institution} logo`}
+                loading="lazy"
               />
             </div>
-            <div className="py-2 text-gray-700 dark:text-gray-400 ">
-              <div className="font-semibold text-lg">{item.institution}</div>
+            <div className="py-2 text-gray-700 dark:text-gray-400">
+              <h3 className="font-semibold text-lg">{item.institution}</h3>
               <div className="flex flex-wrap">
-                <div className="mr-2">{item.degree},</div>
-                <div>{item.field}</div>
+                <span className="mr-2">{item.degree},</span>
+                <span>{item.field}</span>
               </div>
-              <div>{item.duration}</div>
+              <time dateTime={item.duration}>{item.duration}</time>
             </div>
           </div>
         ))}
-      </div>
+      </section>
 
-      <div
+      {/* ─── Projects ──────────────────────────────────────────────────── */}
+      <section
         id="projects"
+        aria-labelledby="projects-heading"
         className="border bg-zinc-200 dark:bg-gray-950 border-gray-400 dark:border-gray-800 rounded-lg sm:my-2 px-6 py-4 my-2"
       >
-        <div className="text-gray-700 dark:text-gray-400 text-xs text-center">
+        <p className="text-gray-700 dark:text-gray-400 text-xs text-center">
           Browse My Recent
-        </div>
-        <div className="text-3xl font-semibold text-center gradient">
+        </p>
+        <h2
+          id="projects-heading"
+          className="text-3xl font-semibold text-center gradient"
+        >
           Projects
-        </div>
+        </h2>
         {projects.map((project, index) => (
-          <div key={project.name}>
+          <article key={project.name} aria-label={project.name}>
             <div
               className={`sm:flex items-center my-8 rounded-lg ${
                 project.reverse ? "flex-row-reverse" : ""
@@ -217,23 +273,27 @@ function Main() {
                   width={800}
                   className="outline outline-2 outline-offset-4 outline-gray-400 dark:outline-gray-700 rounded-lg aspect-video object-cover object-center w-11/12 mx-auto"
                   src={project.image}
-                  alt={project.imageAlt}
+                  alt={`${project.name} – ${project.description}`}
+                  loading="lazy"
                 />
               </div>
               <div className="w-full sm:w-3/5 pl-6">
-                <div className="font-semibold text-3xl gradient my-2">
+                <h3 className="font-semibold text-3xl gradient my-2">
                   {project.name}
-                </div>
-                <div className="text-gray-700 dark:text-gray-400 my-2">
+                </h3>
+                <p className="text-gray-700 dark:text-gray-400 my-2">
                   {project.description}
-                </div>
+                </p>
                 <Link
                   href={project.href}
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-2 hover:text-blue-800 hover:underline underline-offset-1"
+                  aria-label={`Visit ${project.name} live project (opens in new tab)`}
+                  title={`Visit ${project.name}`}
                 >
                   {project.href}
-                  <FaExternalLinkAlt />
+                  <FaExternalLinkAlt aria-hidden="true" />
                 </Link>
                 <div className="mt-5">
                   {project.technologies.map((technology, techIndex) => {
@@ -244,13 +304,17 @@ function Main() {
                         : "";
 
                     return (
-                      <div
+                      <span
                         key={`${project.name}-${technology.name}`}
                         className={`m-1 ${marginClass} inline-flex items-center rounded border border-neutral-200 bg-neutral-50 p-1 text-sm leading-4 text-neutral-900 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100 gap-1`}
+                        title={technology.name}
                       >
-                        <Icon className={`text-lg ${technology.iconClassName}`} />
+                        <Icon
+                          className={`text-lg ${technology.iconClassName}`}
+                          aria-hidden="true"
+                        />
                         {technology.name}
-                      </div>
+                      </span>
                     );
                   })}
                 </div>
@@ -259,48 +323,77 @@ function Main() {
             {index < projects.length - 1 && (
               <hr className="border-1 border-gray-400 dark:border-gray-800 my-4" />
             )}
-          </div>
+          </article>
         ))}
-      </div>
+      </section>
 
-      <div
+      {/* ─── Contact ───────────────────────────────────────────────────── */}
+      <section
         id="contact"
+        aria-labelledby="contact-heading"
         className="border bg-zinc-200 dark:bg-gray-950 border-gray-400 dark:border-gray-800 rounded-lg sm:my-2 px-6 py-4 my-2"
       >
         <div className="w-32 p-1 bg-gradient text-slate-100 rounded-xl mx-auto text-center font-semibold mt-4">
           {contact.badge}
         </div>
-        <div className="text-gray-700 dark:text-gray-400 text-xs text-center mb-4 mt-1">
+        <h2
+          id="contact-heading"
+          className="text-gray-700 dark:text-gray-400 text-xs text-center mb-4 mt-1"
+        >
           {contact.subtitle}
-        </div>
-        <div className="text-gray-700 dark:text-gray-400 mt-4 mb-8 sm:w-3/5 mx-auto text-center">
+        </h2>
+        <p className="text-gray-700 dark:text-gray-400 mt-4 mb-8 sm:w-3/5 mx-auto text-center">
           {contact.description}
-        </div>
+        </p>
+
+        {/* Email */}
         <div className="flex items-center justify-center gap-2 sm:gap-4 text-lg sm:text-2xl font-semibold my-4">
-          <div className="text-2xl sm:text-3xl">
+          <div className="text-2xl sm:text-3xl" aria-hidden="true">
             <HiOutlineMail />
           </div>
-          <div className="border-l-2 border-gray-400 dark:border-gray-800 px-2 sm:px-4">
+          <address className="border-l-2 border-gray-400 dark:border-gray-800 px-2 sm:px-4 not-italic">
             {contact.emails.map((email, index) => (
               <div
                 key={email.value}
                 className={`flex items-center gap-3 ${index > 0 ? "pl-1" : ""}`}
               >
-                {email.value} <ContentCopyBtn copy={email.copyKey} />
+                <a
+                  href={`mailto:${email.value}`}
+                  className="hover:text-orange-500"
+                  aria-label={`Send email to ${email.value}`}
+                >
+                  {email.value}
+                </a>
+                <ContentCopyBtn copy={email.copyKey} />
               </div>
             ))}
-          </div>
+          </address>
         </div>
+
         <hr className="w-3/5 mx-auto border border-gray-400 dark:border-gray-800" />
+
+        {/* Phone */}
         <div className="flex gap-4 items-center justify-center my-4 font-semibold text-2xl">
-          <RiPhoneFill />
-          {contact.phone.value} <ContentCopyBtn copy={contact.phone.copyKey} />
+          <RiPhoneFill aria-hidden="true" />
+          <a
+            href={`tel:${contact.phone.value.replace(/\s/g, "")}`}
+            className="hover:text-orange-500"
+            aria-label={`Call Varun Gupta at ${contact.phone.value}`}
+          >
+            {contact.phone.value}
+          </a>
+          <ContentCopyBtn copy={contact.phone.copyKey} />
         </div>
+
+        {/* Social links */}
         <div className="mx-auto pt-1 pb-6">
-          <div className="text-center text-gray-700 dark:text-gray-400 my-4">
+          <p className="text-center text-gray-700 dark:text-gray-400 my-4">
             {contact.socialHeading}
-          </div>
-          <div className="flex items-center gap-6 justify-center text-gray-700 dark:text-gray-400 text-xl ">
+          </p>
+          <nav
+            className="flex items-center gap-6 justify-center text-gray-700 dark:text-gray-400 text-xl"
+            aria-label="Contact social profiles"
+          >
             {contact.socials.map((social) => {
               const Icon = iconMap[social.icon];
 
@@ -310,16 +403,17 @@ function Main() {
                   className="hover:text-orange-500"
                   href={social.href}
                   target="_blank"
-                  rel="noopener"
-                  aria-label={social.label}
+                  rel="noopener noreferrer"
+                  aria-label={`Connect with Varun Gupta on ${social.label} (opens in new tab)`}
+                  title={social.label}
                 >
-                  <Icon />
+                  <Icon aria-hidden="true" />
                 </Link>
               );
             })}
-          </div>
+          </nav>
         </div>
-      </div>
+      </section>
     </>
   );
 }
