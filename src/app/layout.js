@@ -1,6 +1,7 @@
 import { Roboto } from "next/font/google";
 import "./globals.css";
 import JsonLd from "../components/JsonLd";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const roboto = Roboto({
   weight: ["300", "400", "700", "900"],
@@ -120,6 +121,7 @@ export default function RootLayout({ children }) {
         <JsonLd />
         {children}
       </body>
+      <GoogleAnalytics gaId="G-HHN6VR0ZDK" />
     </html>
   );
 }
