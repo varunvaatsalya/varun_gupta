@@ -1,7 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 import { TbBrandFiverr } from "react-icons/tb";
 import resume from "../data/resume.json";
+import FiverrGigsCarousel from "./FiverrGigsCarousel";
 
 function CoMain() {
   const gigs = resume.fiverrGigs ?? [];
@@ -29,36 +29,25 @@ function CoMain() {
           </Link>
         </div>
 
-        {gigs.map((gig) => (
-          <div key={gig.id} className="w-full flex flex-col items-center">
-            <div className="w-full border-y border-gray-400 dark:border-gray-700 overflow-hidden">
-              <Image
-                height={800}
-                width={800}
-                src={gig.image}
-                alt={gig.imageAlt}
-                className="w-full py-2 lg:hover:scale-110 delay-150 ease-in duration-150"
-                loading="lazy"
-              />
-            </div>
-            <Link
-              href={gig.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-lg font-bold text-pink-500 hover:text-orange-500 hover:underline underline-offset-2 py-2"
-              aria-label={gig.ariaLabel}
-            >
-              {gig.cta}
-            </Link>
-          </div>
-        ))}
+        <FiverrGigsCarousel gigs={gigs} />
       </div>
 
       <Link
         href="/resume"
         aria-label="View Varun Gupta's resume"
+        className="group my-2 w-full border border-gray-400 dark:border-gray-800 rounded-lg overflow-hidden bg-zinc-200 dark:bg-gray-950 block"
       >
-        <div className="w-full h-12 rounded-md text-lg border border-gray-400 dark:border-gray-800 font-semibold text-pink-500 hover:text-orange-500 my-2 bg-zinc-200 dark:bg-gray-950 flex justify-center items-center max-lg:hidden">
+        <div className="relative w-full aspect-[16/9] max-h-56 max-lg:px-4 max-lg:pt-4 overflow-hidden bg-zinc-300 dark:bg-gray-900">
+          {/* Drive thumbnail – unoptimized because Drive redirects */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={resume.cvThumbnailUrl}
+            alt="Preview of Varun Gupta's resume"
+            className="h-full w-full rounded-t-lg object-cover object-top transition-transform duration-150 ease-in group-hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+        <div className="flex h-12 items-center justify-center text-lg font-semibold text-pink-500 group-hover:text-orange-500">
           View Resume
         </div>
       </Link>

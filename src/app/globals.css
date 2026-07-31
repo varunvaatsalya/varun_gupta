@@ -49,3 +49,21 @@ body {
 .bg-gradient:hover {
   background-image: linear-gradient(225deg, #ec4899 10%, #ec7520 100%);
 }
+
+@keyframes carousel-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.carousel-progress-fill {
+  transform-origin: left center;
+  animation: carousel-progress var(--carousel-ms, 4000ms) linear forwards;
+}
+
+.carousel-progress-fill.is-paused {
+  animation-play-state: paused;
+}
