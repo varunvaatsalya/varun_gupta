@@ -57,6 +57,8 @@ const personSchema = {
     "https://twitter.com/varunvaatsalya",
     "https://www.instagram.com/varunvaatsalya/",
     "https://www.fiverr.com/s/8z5y2Y4",
+    "https://www.fiverr.com/s/zWYBXz3",
+    "https://www.fiverr.com/s/99mkjaj",
   ],
   email: "varunvaatsalya@gmail.com",
 };

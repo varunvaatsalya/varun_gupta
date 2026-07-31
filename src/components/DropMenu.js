@@ -1,19 +1,31 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FaBars } from "react-icons/fa6";
 import { TbBrandFiverr } from "react-icons/tb";
 
 export default function Dropdown() {
   const [open, setOpen] = useState(false);
+  const menuRef = useRef(null);
 
-  useEffect(() => {}, [open]);
+  useEffect(() => {
+    if (!open) return;
+
+    function handleClickOutside(event) {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [open]);
 
   function toggleOpen() {
     setOpen(!open);
   }
 
   return (
-    <div className="relative">
+    <div className="relative" ref={menuRef}>
       <button
         type="button"
         className="p-2 border border-gray-400 dark:border-gray-700 text-slate-500 dark:text-slate-400 w-10 h-10 rounded-lg"
@@ -54,8 +66,10 @@ export default function Dropdown() {
         </a>
         <hr className="border-gray-400 dark:border-gray-700 w-4/5 mx-auto block max-lg:hidden" />
         <a
-          href="#freelancing"
-          aria-label="Jump to Fiverr freelancing section"
+          href="https://www.fiverr.com/s/99mkjaj"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Open Varun Gupta's Fiverr profile (opens in new tab)"
         >
           <button
             type="button"
