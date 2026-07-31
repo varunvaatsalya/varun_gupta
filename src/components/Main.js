@@ -22,7 +22,7 @@ import {
   SiThealgorithms,
   SiTypescript,
 } from "react-icons/si";
-import { TbBrandCpp, TbPointFilled } from "react-icons/tb";
+import { TbBrandCpp, TbBrandFiverr, TbPointFilled } from "react-icons/tb";
 import resume from "../data/resume.json";
 import About from "./About";
 import CoMain from "./CoMain";
@@ -36,6 +36,7 @@ const iconMap = {
   django: SiDjango,
   docker: GrDocker,
   express: SiExpress,
+  fiverr: TbBrandFiverr,
   git: FaGitAlt,
   github: FaGithub,
   gmail: SiGmail,

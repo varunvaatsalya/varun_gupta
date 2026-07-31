@@ -36,6 +36,11 @@
         "label": "Gmail",
         "href": "https://mail.google.com/mail/u/0/?view=cm&fs=1&to=varunvaatsalya@gmail.com&tf=1",
         "icon": "gmail"
+      },
+      {
+        "label": "Fiverr",
+        "href": "https://www.fiverr.com/s/99mkjaj",
+        "icon": "fiverr"
       }
     ]
   },
@@ -63,7 +68,7 @@
     {
       "name": "Nextjs",
       "icon": "nextjs",
-      "iconClassName": ""
+      "iconClassName": "text-zinc-800 dark:text-zinc-100"
     },
     {
       "name": "NodeJs",
@@ -73,12 +78,12 @@
     {
       "name": "ExpressJs",
       "icon": "express",
-      "iconClassName": ""
+      "iconClassName": "text-zinc-700 dark:text-zinc-200"
     },
     {
       "name": "Socket.io",
       "icon": "socketio",
-      "iconClassName": ""
+      "iconClassName": "text-zinc-800 dark:text-zinc-100"
     },
     {
       "name": "Django",
@@ -88,7 +93,7 @@
     {
       "name": "Python",
       "icon": "python",
-      "iconClassName": ""
+      "iconClassName": "text-yellow-400"
     },
     {
       "name": "Selenium",
@@ -133,12 +138,12 @@
     {
       "name": "Github",
       "icon": "github",
-      "iconClassName": ""
+      "iconClassName": "text-zinc-800 dark:text-zinc-100"
     },
     {
       "name": "C++",
       "icon": "cpp",
-      "iconClassName": ""
+      "iconClassName": "text-blue-500"
     },
     {
       "name": "Canva",
@@ -173,7 +178,7 @@
         {
           "name": "ExpressJs",
           "icon": "express",
-          "iconClassName": ""
+          "iconClassName": "text-zinc-700 dark:text-zinc-200"
         },
         {
           "name": "MongoDB",
@@ -193,7 +198,7 @@
         {
           "name": "Nextjs",
           "icon": "nextjs",
-          "iconClassName": ""
+          "iconClassName": "text-zinc-800 dark:text-zinc-100"
         },
         {
           "name": "Tailwind CSS",
