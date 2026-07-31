@@ -81,17 +81,15 @@ export default function Dropdown() {
         </a>
         <hr className="border-gray-400 dark:border-gray-700 w-4/5 mx-auto hidden max-lg:block" />
         <a
-          href="https://drive.google.com/file/d/1vT4Hg6EnMgabccPks2AA8jb3fLt-fDJd/view?usp=drive_link"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Download Varun Gupta's CV (opens in new tab)"
+          href="/resume"
+          aria-label="View Varun Gupta's resume"
         >
           <button
             type="button"
             className="w-full h-8 rounded-lg hover hover:bg-pink-500 text-pink-500 hover:text-gray-50 hidden max-lg:block"
             onClick={toggleOpen}
           >
-            Download CV
+            View Resume
           </button>
         </a>
       </nav>

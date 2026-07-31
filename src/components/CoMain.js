@@ -54,16 +54,14 @@ function CoMain() {
         ))}
       </div>
 
-      <a
-        href={resume.cvUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="View Varun Gupta's resume (opens Google Drive in new tab)"
+      <Link
+        href="/resume"
+        aria-label="View Varun Gupta's resume"
       >
         <div className="w-full h-12 rounded-md text-lg border border-gray-400 dark:border-gray-800 font-semibold text-pink-500 hover:text-orange-500 my-2 bg-zinc-200 dark:bg-gray-950 flex justify-center items-center max-lg:hidden">
           View Resume
         </div>
-      </a>
+      </Link>
     </>
   );
 }
