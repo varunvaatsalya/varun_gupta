@@ -1,0 +1,401 @@
+{
+  "caseStudies": [
+    {
+      "slug": "hospital-operations-platform",
+      "name": "Hospital Operations Platform",
+      "tagline": "Billing, prescriptions, wards, lab and a two-tier pharmacy for a multi-specialty hospital, all in one system.",
+      "oneLiner": "A web platform with a companion Android staff app that runs a multi-specialty hospital day to day: patient registration and billing, digital prescriptions, in-patient admissions, the pathology lab, and a complete pharmacy from vendor purchasing to the counter sale.",
+      "kind": "client",
+      "kindLabel": "Client work",
+      "confidential": true,
+      "statusLabel": "Ongoing · 2 years",
+      "industry": "Healthcare",
+      "role": "Sole developer: architecture, backend, frontend, mobile and deployment",
+      "timeline": "Oct 2024 – present",
+      "icon": "hospital",
+      "coverClassName": "from-emerald-500 to-sky-600",
+      "platforms": ["Web dashboards", "REST API", "Android staff app"],
+      "links": [],
+      "confidentialNote": "This is an internal system built under a confidentiality agreement, so it has no public link and the client is not named. Screenshots with anonymized data are coming soon.",
+      "highlights": [
+        { "value": "9", "label": "staff roles" },
+        { "value": "234", "label": "screens" },
+        { "value": "254", "label": "API endpoints" },
+        { "value": "390", "label": "commits, solo" }
+      ],
+      "technologies": [
+        { "name": "Nextjs", "icon": "nextjs", "iconClassName": "text-zinc-800 dark:text-zinc-100" },
+        { "name": "ExpressJs", "icon": "express", "iconClassName": "text-zinc-700 dark:text-zinc-200" },
+        { "name": "MongoDB", "icon": "mongodb", "iconClassName": "text-emerald-400" },
+        { "name": "Redis" },
+        { "name": "React Native", "icon": "reactNative", "iconClassName": "text-cyan-400" }
+      ],
+      "problem": [
+        "A multi-specialty hospital runs several businesses under one roof: OPD consultations, in-patient wards, a pathology lab, a pharmacy counter, a hospital pharmacy and a central medicine store that supplies them. Each has its own staff, billing and stock, and they all touch the same patients and the same medicines.",
+        "Without one system, bills, prescriptions and lab reports live in separate places, pharmacy stock drifts away from what is on the shelf with no trail of who moved what, vendor reordering is manual, and near-expiry stock is noticed too late.",
+        "The platform gives every department its own role-based workspace on shared data, and gives the owner and admin analytics, audit trails and security controls over all of it."
+      ],
+      "roles": [
+        { "name": "Admin", "does": "Every module, users and roles, security, automations, request logs, audit trails, exports" },
+        { "name": "Owner", "does": "Business analytics, pharmacy accounts, expenses, approvals for returns and stock-sensitive operations" },
+        { "name": "Front desk", "does": "Patient registration, OPD invoices, express billing, lab reports, IPD" },
+        { "name": "Pharmacy counter", "does": "Pharmacy billing, stock requests to the store, expiring-stock list" },
+        { "name": "Central store", "does": "Purchase invoices, vendor orders over WhatsApp, returns, payment dues" },
+        { "name": "Nurse", "does": "Patients, billing, IPD, digitizing doctors' prescriptions" },
+        { "name": "Doctor", "does": "Personal analytics and the clinical master lists" },
+        { "name": "Pathologist", "does": "Lab test entry, editing and printing" },
+        { "name": "OPD", "does": "Digitizing prescriptions, also from the mobile app" }
+      ],
+      "features": [
+        {
+          "title": "Pharmacy: counter, hospital pharmacy and central store",
+          "star": true,
+          "items": [
+            "Counter billing with batch allocation: earliest expiry first, strips and loose tablets, near-expiry batches never sold, discounts guarded by margin",
+            "Store-to-counter stock requests with approval, batch allocation and a receipt check against the system count",
+            "Purchase invoices that go through review, then enter stock with GST, discounts and free-offer quantities",
+            "Auto-suggested vendor orders from stock limits, sent to vendors over WhatsApp",
+            "Customer returns, pull-backs to the store, vendor return notes and credit notes",
+            "Expiring, slow-moving and stale stock reports, margin and selling-ratio analysis"
+          ]
+        },
+        {
+          "title": "Stock ledger: a passbook for every medicine",
+          "star": true,
+          "items": [
+            "Every sale, return, receipt and correction writes an immutable ledger entry: before, after, batch-wise change, who did it and which bill caused it",
+            "A printable statement per medicine and date range with opening balance, running balance and closing balance",
+            "Any stock change made outside the ledger is flagged on the statement"
+          ]
+        },
+        {
+          "title": "Digital prescriptions",
+          "star": true,
+          "items": [
+            "Handwritten prescriptions transcribed into structured complaints, diagnoses, investigations, medicines and advice",
+            "Suggestions ranked by what that doctor has used before, then by what other doctors used",
+            "Curated clinical master lists with an approval flow and synonyms",
+            "Prescription lines are marked as billed automatically, so billing staff see what is still pending"
+          ]
+        },
+        {
+          "title": "Patients, OPD, IPD and lab",
+          "items": [
+            "Patient registration and advanced search, OPD invoices with print-ready formats",
+            "Express billing for quick counter sales, converted into full invoices later",
+            "Admissions, wards and beds, outstanding-payment tracking; pharmacy sales for insured patients are added to their admission automatically",
+            "Lab test catalogue, result entry and printable reports"
+          ]
+        },
+        {
+          "title": "Security and administration",
+          "star": true,
+          "items": [
+            "Brute-force lockout per account and per IP, revocable server-side sessions, active-session and login history",
+            "Two-step login for the web, with a rotating 6-digit code shown on the staff member's registered phone",
+            "Mobile devices must be approved by an admin; refresh tokens rotate on every use",
+            "Admin-scheduled automations with run logs, plus an operations console with health, request analytics and error logs"
+          ]
+        }
+      ],
+      "engineering": [
+        {
+          "title": "All-or-nothing stock movements",
+          "body": "A pharmacy bill touches the invoice, several stock documents, the patient's admission and the prescription markers. These used to be sequential writes, so a failure halfway, or two counters billing the same medicine at once, could deduct stock without creating a bill. I moved every critical flow onto MongoDB multi-document transactions on a replica set. Write conflicts re-run on fresh stock, and an idempotency key turns double-clicks into \"invoice already created\". Each flow was verified with scripted failure and concurrency tests."
+        },
+        {
+          "title": "A ledger that cannot drift",
+          "body": "Every stock movement becomes one small, immutable document written in the same transaction as the stock change. Each entry stores the balance after it, so a statement for any date range reads only that range, with keyset pagination and indexes matched to the real queries. In a test with 3,000 entries for one medicine, a 10-day slice from the middle came back in single-digit milliseconds."
+        },
+        {
+          "title": "Authentication for shared hospital terminals",
+          "body": "JWTs are backed by Redis sessions, so any session can be revoked. Staff with several roles switch the active role inside one session. Web logins can require a TOTP code (RFC 6238, secrets encrypted with AES-256-GCM) shown on the staff member's phone. The mobile app uses short-lived access tokens and rotating refresh tokens stored only as hashes. If Redis goes down, the system falls back to JWT-only checks instead of locking everyone out."
+        },
+        {
+          "title": "From monolith to a dedicated API",
+          "body": "About 35k lines of Next.js API routes were moved into a standalone Express backend organized by module, with shared middleware for auth, role checks, error handling and responses. The move was tracked with a migration map, so it shipped without breaking the hospital's daily work."
+        },
+        {
+          "title": "Observability without extra infrastructure",
+          "body": "Every API request goes to hourly JSON-lines logs, kept for 15 days. Failed requests also store their bodies with sensitive fields masked. A request id links ledger entries back to the exact request, and a global Mongoose plugin tracks database queries and cache hits per module."
+        },
+        {
+          "title": "Background jobs the admin controls",
+          "body": "BullMQ workers on Redis run jobs whose schedule the admin edits in the UI. Jobs retry with exponential backoff and keep run logs. One of them recalculates minimum and maximum stock for each medicine from sales history, which then feeds the auto-suggested vendor orders."
+        }
+      ],
+      "architecture": [
+        { "label": "Clients", "items": ["Next.js web dashboards (9 roles)", "Android staff app (Expo / React Native)"] },
+        { "label": "Backend", "items": ["Express REST API behind a reverse proxy", "Auth, sessions, 2FA, role checks", "Stock ledger, audit trails, request logs", "BullMQ scheduled workers"] },
+        { "label": "Data & services", "items": ["MongoDB replica set", "Redis: sessions, cache, queues", "Server disk: uploads, APK releases, logs", "WhatsApp messaging API"] }
+      ],
+      "stack": [
+        { "group": "Frontend", "items": ["Next.js 14", "React 18", "Tailwind CSS", "Radix UI", "react-hook-form"] },
+        { "group": "Backend", "items": ["Node.js", "Express", "JWT", "Multer", "Helmet"] },
+        { "group": "Data", "items": ["MongoDB", "Mongoose 8", "Redis", "BullMQ"] },
+        { "group": "Mobile", "items": ["Expo", "React Native"] },
+        { "group": "Other", "items": ["xlsx exports and bulk upload", "sharp", "WhatsApp API"] }
+      ],
+      "gallery": []
+    },
+    {
+      "slug": "flashvouchers",
+      "name": "FlashVouchers",
+      "tagline": "A multi-country coupon platform with a website, a Chrome extension, an admin CMS and an MCP server for AI assistants.",
+      "oneLiner": "A coupon and deals platform that helps shoppers in several countries find verified discount codes. It ships as a public website, a Chrome extension and an upcoming mobile app, and the team runs it all from one admin panel that ChatGPT or Claude can connect to.",
+      "kind": "client",
+      "kindLabel": "Client work",
+      "confidential": false,
+      "statusLabel": "Live · app in progress",
+      "industry": "Coupons & deals",
+      "role": "Sole developer: website, admin panel, API, extension and mobile app",
+      "timeline": "Jun 2025 – present",
+      "icon": "voucher",
+      "coverClassName": "from-pink-500 to-orange-500",
+      "platforms": ["Website", "Chrome extension", "Admin CMS", "Mobile app (in progress)"],
+      "links": [
+        { "label": "flashvouchers.com", "href": "https://www.flashvouchers.com" }
+      ],
+      "highlights": [
+        { "value": "29", "label": "content languages" },
+        { "value": "23", "label": "MCP tools" },
+        { "value": "~178", "label": "API handlers" },
+        { "value": "48", "label": "data models" }
+      ],
+      "technologies": [
+        { "name": "Nextjs", "icon": "nextjs", "iconClassName": "text-zinc-800 dark:text-zinc-100" },
+        { "name": "MongoDB", "icon": "mongodb", "iconClassName": "text-emerald-400" },
+        { "name": "Chrome Extension" },
+        { "name": "MCP" },
+        { "name": "React Native", "icon": "reactNative", "iconClassName": "text-cyan-400" }
+      ],
+      "problem": [
+        "Shoppers waste time hunting for coupon codes that are expired, fake or not valid in their country.",
+        "Coupon publishers have the opposite problem. They have to turn a constant stream of offers from affiliate networks into country-specific, SEO-friendly pages, keep those pages fresh, and earn commission on every click.",
+        "FlashVouchers serves both sides: a fast storefront and browser extension for shoppers, and a CMS for the publisher's team built around merchants, offers and affiliate networks, with per-country content in each country's own language and AI assistants that can do the data entry."
+      ],
+      "roles": [
+        { "name": "Visitor", "does": "Browse stores, categories, offers, events and guides for their country; reveal public codes" },
+        { "name": "Member", "does": "Unlock premium codes, favourite stores, store alerts, revealed-code history, use the extension" },
+        { "name": "Admin", "does": "Every CMS module, roles and security, blog approval, granting MCP write access" },
+        { "name": "Content manager", "does": "Merchant and category content, events, blogs, layouts; read-only MCP access" },
+        { "name": "AI client via MCP", "does": "ChatGPT or Claude acting for a staff member: 23 tools, drafts only, every write audited" }
+      ],
+      "features": [
+        {
+          "title": "MCP server for the content team",
+          "star": true,
+          "items": [
+            "Staff connect ChatGPT, Claude or any MCP client to the admin panel with a normal login",
+            "Paste an affiliate-network email and the offers are extracted and created as drafts",
+            "The assistant writes each country's content in that country's language",
+            "Look up and update merchants, offers, categories, blogs and FAQs in plain language"
+          ]
+        },
+        {
+          "title": "Multi-country storefront",
+          "star": true,
+          "items": [
+            "Geo-IP redirect to the visitor's country (India, US, UK, Germany)",
+            "Merchants, categories and FAQs carry localized text and SEO fields per country",
+            "Offer dates stored in the country's time zone, so a deal expires at local midnight",
+            "Store directory, nested category tree, seasonal event pages, blogs and savings guides",
+            "JSON-LD structured data across 8 page types"
+          ]
+        },
+        {
+          "title": "Reveal-a-code flow and global search",
+          "star": true,
+          "items": [
+            "Codes are never sent to the browser until the user clicks \"Get code\"; lists only show the last few characters",
+            "Premium codes unlock with sign-in (email, Google or Apple)",
+            "Ctrl+K search across stores, offers, categories and blogs, with relevance scoring, highlighted matches and trending suggestions"
+          ]
+        },
+        {
+          "title": "Chrome extension",
+          "star": true,
+          "items": [
+            "Detects a supported store while you shop and shows a small suggestion chip",
+            "An in-page panel lists that store's offers; one click reveals, copies and opens the deal",
+            "Stays silent on checkout pages and on unsupported sites"
+          ]
+        },
+        {
+          "title": "Admin CMS",
+          "items": [
+            "Page builder with 13 content-block types across 5 page contexts, applied as reusable layouts",
+            "Affiliate networks with tracking parameters; the final affiliate URL is built automatically",
+            "Blog editor (Tiptap) with a draft, review and publish workflow",
+            "Cloudinary media gallery, homepage and navbar management, contact inbox",
+            "Mobile app content: banners, home sections and stories"
+          ]
+        }
+      ],
+      "engineering": [
+        {
+          "title": "A production MCP server with its own OAuth 2.1",
+          "body": "The admin app is both the MCP resource and its own OAuth 2.1 authorization server, with dynamic client registration, PKCE, refresh tokens and revocation, so ChatGPT or Claude connect with an ordinary login. Tokens are stored only as SHA-256 hashes. Access is scoped to read or write, only admins can grant write, and write tools are not even registered for read-only sessions."
+        },
+        {
+          "title": "Making AI writes safe",
+          "body": "Everything an AI assistant creates is saved as a draft for human review. Every MCP write is recorded with before and after snapshots, so a bad edit can be reverted, and is attributed as \"staff name (via MCP: client)\". Rate limits backed by MongoDB work across serverless instances: per token, per write, and per IP for failed authentication."
+        },
+        {
+          "title": "Protecting the coupon codes",
+          "body": "Codes are the business asset. Every public offer response is sanitized to remove the code and affiliate URLs, leaving only a short preview. The code comes back from a dedicated, rate-limited reveal endpoint that checks premium status against the session, and every reveal is logged per offer and per user."
+        },
+        {
+          "title": "A privacy-first browser extension",
+          "body": "The supported-store list is synced in the background and matched locally, so unsupported sites get no script, no network call and no UI. Content scripts are injected on demand, which means new stores work without republishing the extension. The panel lives in a Shadow DOM so it never clashes with the store's CSS."
+        },
+        {
+          "title": "Localization across 29 languages",
+          "body": "Each country has one content language, a currency and its time zones. Merchants, categories, FAQs and blogs keep per-country localizations with their own SEO fields, and the AI assistant is instructed to write in the right language for each country."
+        },
+        {
+          "title": "Composable page layouts and in-house search",
+          "body": "A shared block registry drives both the admin page builder and the public renderer, and data-driven blocks keep pages fresh without manual edits. Search is written in-house with weighted scoring over titles, localized text and SEO keywords, plus debounced, abortable requests and a prefetched suggestion cache."
+        }
+      ],
+      "architecture": [
+        { "label": "Clients", "items": ["Public website (Next.js 16)", "Chrome extension (Manifest V3)", "Mobile app (Expo)", "ChatGPT / Claude via MCP", "Staff browser"] },
+        { "label": "Admin app: CMS + API", "items": ["Staff CMS", "Public and extension APIs", "Auth and OAuth 2.1", "MCP server"] },
+        { "label": "Data & services", "items": ["MongoDB (48 models)", "Cloudinary", "Google Gemini", "Google / Apple sign-in"] }
+      ],
+      "stack": [
+        { "group": "Frontend", "items": ["Next.js 16", "React 19", "Tailwind CSS 4", "shadcn/ui", "cmdk"] },
+        { "group": "Admin & API", "items": ["Next.js 15", "Tiptap 3", "Zod", "jose", "google-auth-library", "apple-signin-auth"] },
+        { "group": "Data", "items": ["MongoDB", "Mongoose 9", "Cloudinary"] },
+        { "group": "Extension", "items": ["Chrome Manifest V3", "Service worker", "Shadow DOM"] },
+        { "group": "AI", "items": ["Model Context Protocol SDK", "Vercel AI SDK", "Google Gemini"] },
+        { "group": "Mobile", "items": ["Expo", "React Native", "NativeWind"] }
+      ],
+      "gallery": []
+    },
+    {
+      "slug": "nsplit",
+      "name": "nSplit",
+      "tagline": "An offline-first group expense splitter for web and Android.",
+      "oneLiner": "nSplit lets friends, flatmates and travel groups log shared expenses and instantly see who owes whom, on the web or on an Android app that keeps working without internet.",
+      "kind": "product",
+      "kindLabel": "My product",
+      "confidential": false,
+      "statusLabel": "Live",
+      "industry": "Consumer fintech",
+      "role": "Built solo: product design, web, Android, backend and release tooling",
+      "timeline": "Aug 2026 – present",
+      "icon": "split",
+      "coverClassName": "from-violet-500 to-indigo-600",
+      "platforms": ["Web app", "Android app"],
+      "links": [
+        { "label": "nsplit.vercel.app", "href": "https://nsplit.vercel.app" },
+        { "label": "Download for Android", "href": "https://nsplit.vercel.app/download", "kind": "download" }
+      ],
+      "highlights": [
+        { "value": "100%", "label": "works offline" },
+        { "value": "5", "label": "split methods" },
+        { "value": "8", "label": "currencies" },
+        { "value": "~37k", "label": "lines of code" }
+      ],
+      "technologies": [
+        { "name": "Nextjs", "icon": "nextjs", "iconClassName": "text-zinc-800 dark:text-zinc-100" },
+        { "name": "React Native", "icon": "reactNative", "iconClassName": "text-cyan-400" },
+        { "name": "MongoDB", "icon": "mongodb", "iconClassName": "text-emerald-400" },
+        { "name": "SQLite", "icon": "sqlite", "iconClassName": "text-sky-500" }
+      ],
+      "problem": [
+        "When a group shares costs, the money trail gets messy fast: one person pays the hotel, two split a cab, someone covers drinks, and the rent split depends on room size. Groups fall back on chat messages and mental math, which leads to mistakes and awkward conversations.",
+        "nSplit gives the group one shared ledger. You log who paid and how to split it, and the app works out everyone's running balance and the fewest payments needed to settle up. It is built for Indian groups first, and it works on a phone with no signal, which is common on trips, syncing once you are back online."
+      ],
+      "roles": [
+        { "name": "Visitor", "does": "Open a group's share link to see expenses and balances, no account needed" },
+        { "name": "Guest app user", "does": "Use the Android app fully on-device; data is claimed and synced after login" },
+        { "name": "Member", "does": "See everything, suggest expenses and payments for an admin to approve" },
+        { "name": "Group admin", "does": "Manage expenses, members, settings and the share link; approve join requests" }
+      ],
+      "features": [
+        {
+          "title": "Flexible splitting",
+          "star": true,
+          "items": [
+            "Multiple payers on one bill",
+            "Split equally, by exact amounts, percentages or shares (a bigger room pays 2 parts)",
+            "Amounts calculated in paise with fair rounding",
+            "Each expense shows every member's balance before and after"
+          ]
+        },
+        {
+          "title": "Smart categories",
+          "star": true,
+          "items": [
+            "Typing \"sabji\", \"uber to airport\" or even a misspelled \"grocries\" picks the right category and icon",
+            "Spending by category: group total or your share, this month, last month or all time"
+          ]
+        },
+        {
+          "title": "Offline-first Android app",
+          "star": true,
+          "items": [
+            "Works fully without internet or an account",
+            "Changes are saved on the phone and synced automatically once online",
+            "Warns before logout if there are unsynced changes"
+          ]
+        },
+        {
+          "title": "Sharing, joining and approvals",
+          "star": true,
+          "items": [
+            "A read-only share link anyone can open in a browser; it opens straight in the app when installed",
+            "Ask to join by picking which group member you are; admins approve or decline",
+            "Members' expenses go to a requests inbox for admin approval"
+          ]
+        },
+        {
+          "title": "Balances, exports and accounts",
+          "items": [
+            "Who owes whom, simplified settle-up suggestions and one-tap payments",
+            "Per-member balance sheet with a running balance",
+            "PDF ledger export on web and app with date-range presets",
+            "Email or Google sign-in, light and dark themes, in-app feedback"
+          ]
+        }
+      ],
+      "engineering": [
+        {
+          "title": "Offline-first sync engine (SQLite to MongoDB)",
+          "body": "The app writes every change to SQLite and to an outbox in the same transaction, so nothing is lost if the app is killed. One sync round trip pushes queued changes and pulls everything changed since a saved cursor. Conflicts resolve last-writer-wins, retries are idempotent through a mutation log, and IDs are generated on the device in ObjectId format so a record keeps the same ID everywhere."
+        },
+        {
+          "title": "One domain package for web and mobile",
+          "body": "Split maths, balance simplification, the running ledger, permissions, categories and spending analytics live in one framework-free package with tests. Both the Next.js app and the React Native app use it, so both compute identical balances to the paisa."
+        },
+        {
+          "title": "Permissions on every write path",
+          "body": "Four permission levels map to 17 actions, enforced in the REST API and in the sync endpoint alike, so sync can never remove an account-linked member or the last admin. Approving a request is atomic: it is claimed with a conditional update, so two admins can never apply it twice."
+        },
+        {
+          "title": "Hinglish- and typo-tolerant categories",
+          "body": "Expense titles are normalized and matched against keyword lists that include Hinglish words, plus a phonetic key and one-letter typo matching, with guards so \"mouse\" is not read as \"house\". It runs offline on the phone and on the server from the same code."
+        },
+        {
+          "title": "Google Sign-In and a self-managed release pipeline",
+          "body": "Web and Android both get a Google ID token that the server verifies against Google's public keys, and existing email accounts are linked instead of duplicated. Android builds are signed locally through a custom Expo config plugin, and a release script updates the website's download dialog with the new version and APK size."
+        }
+      ],
+      "architecture": [
+        { "label": "Clients", "items": ["Web app + marketing site (Next.js)", "Android app (Expo) with SQLite + outbox", "Shared domain package"] },
+        { "label": "API on Vercel", "items": ["REST API", "Sync endpoint", "Share links", "Google auth"] },
+        { "label": "Data & services", "items": ["MongoDB", "Google Identity"] }
+      ],
+      "stack": [
+        { "group": "Web", "items": ["Next.js 16", "React 19", "Tailwind CSS 4", "Radix UI", "Framer Motion"] },
+        { "group": "Backend", "items": ["Next.js route handlers", "Zod", "bcryptjs", "jose"] },
+        { "group": "Data", "items": ["MongoDB", "Mongoose", "SQLite on device"] },
+        { "group": "Mobile", "items": ["Expo SDK 57", "React Native 0.86", "Expo Router", "NativeWind", "Reanimated"] },
+        { "group": "Hosting", "items": ["Vercel", "Android App Links"] }
+      ],
+      "gallery": []
+    }
+  ]
+}

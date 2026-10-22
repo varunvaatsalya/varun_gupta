@@ -2,6 +2,7 @@ import { Roboto } from "next/font/google";
 import "./globals.css";
 import JsonLd from "../components/JsonLd";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { BASE_URL } from "../lib/site";
 
 const roboto = Roboto({
   weight: ["300", "400", "700", "900"],
@@ -10,7 +11,6 @@ const roboto = Roboto({
   preload: true,
 });
 
-const BASE_URL = "https://varunvaatsalya.me";
 
 export const metadata = {
   metadataBase: new URL(BASE_URL),

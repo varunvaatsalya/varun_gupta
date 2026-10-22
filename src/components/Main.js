@@ -23,11 +23,14 @@ import {
   SiTypescript,
 } from "react-icons/si";
 import { TbBrandCpp, TbBrandFiverr, TbPointFilled } from "react-icons/tb";
+import { ArrowRight } from "lucide-react";
 import resume from "../data/resume.json";
+import projectsData from "../data/projects.json";
 import About from "./About";
 import CoMain from "./CoMain";
 import ContentCopyBtn from "./ContentCopyBtn";
 import Dropdown from "./DropMenu";
+import ProjectCover from "./ProjectCover";
 
 const iconMap = {
   algorithm: SiThealgorithms,
@@ -62,6 +65,7 @@ const iconMap = {
 
 function Main() {
   const { profile, skills, education, projects, contact } = resume;
+  const { caseStudies } = projectsData;
 
   return (
     <>
@@ -253,79 +257,144 @@ function Main() {
         className="border bg-zinc-200 dark:bg-gray-950 border-gray-400 dark:border-gray-800 rounded-lg sm:my-2 px-6 py-4 my-2"
       >
         <p className="text-gray-700 dark:text-gray-400 text-xs text-center">
-          Browse My Recent
+          Browse My
         </p>
         <h2
           id="projects-heading"
           className="text-3xl font-semibold text-center gradient"
         >
-          Projects
+          Selected Work
         </h2>
-        {projects.map((project, index) => (
-          <article key={project.name} aria-label={project.name}>
+        {caseStudies.map((project, index) => (
+          <article key={project.slug} aria-label={project.name}>
             <div
-              className={`sm:flex items-center my-8 rounded-lg ${
-                project.reverse ? "flex-row-reverse" : ""
+              className={`sm:flex items-center gap-6 my-8 ${
+                index % 2 ? "flex-row-reverse" : ""
               }`}
             >
-              <div className="w-full sm:w-1/2 my-4">
-                <Image
-                  height={800}
-                  width={800}
-                  className="outline outline-2 outline-offset-4 outline-gray-400 dark:outline-gray-700 rounded-lg aspect-video object-cover object-center w-11/12 mx-auto"
-                  src={project.image}
-                  alt={`${project.name} – ${project.description}`}
-                  loading="lazy"
+              <Link
+                href={`/projects/${project.slug}`}
+                className="block w-full sm:w-1/2 my-4 transition-transform duration-150 hover:scale-[1.02]"
+                aria-label={`Read the ${project.name} case study`}
+              >
+                <ProjectCover
+                  project={project}
+                  className="outline outline-2 outline-offset-4 outline-gray-400 dark:outline-gray-700"
                 />
-              </div>
-              <div className="w-full sm:w-3/5 pl-6">
+              </Link>
+              <div className="w-full sm:w-1/2">
+                <div className="flex flex-wrap items-center gap-2 text-xs font-semibold">
+                  <span className="rounded-full bg-gradient text-slate-100 px-2 py-0.5">
+                    {project.kindLabel}
+                  </span>
+                  <span className="text-gray-700 dark:text-gray-400">
+                    {project.industry} · {project.statusLabel}
+                  </span>
+                </div>
                 <h3 className="font-semibold text-3xl gradient my-2">
                   {project.name}
                 </h3>
                 <p className="text-gray-700 dark:text-gray-400 my-2">
-                  {project.description}
+                  {project.tagline}
                 </p>
-                <Link
-                  href={project.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 hover:text-blue-800 hover:underline underline-offset-1"
-                  aria-label={`Visit ${project.name} live project (opens in new tab)`}
-                  title={`Visit ${project.name}`}
-                >
-                  {project.href}
-                  <FaExternalLinkAlt aria-hidden="true" />
-                </Link>
-                <div className="mt-5">
-                  {project.technologies.map((technology, techIndex) => {
+                <dl className="grid grid-cols-4 gap-2 my-4">
+                  {project.highlights.map((highlight) => (
+                    <div key={highlight.label} className="text-center">
+                      <dt className="sr-only">{highlight.label}</dt>
+                      <dd className="text-lg font-bold text-zinc-800 dark:text-zinc-100">
+                        {highlight.value}
+                      </dd>
+                      <dd className="text-[11px] leading-tight text-gray-700 dark:text-gray-400">
+                        {highlight.label}
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+                <div>
+                  {project.technologies.map((technology) => {
                     const Icon = iconMap[technology.icon];
-                    const marginClass =
-                      techIndex === project.technologies.length - 1
-                        ? "mb-4"
-                        : "";
 
                     return (
                       <span
-                        key={`${project.name}-${technology.name}`}
-                        className={`m-1 ${marginClass} inline-flex items-center rounded border border-neutral-200 bg-neutral-50 p-1 text-sm leading-4 text-neutral-900 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100 gap-1`}
+                        key={`${project.slug}-${technology.name}`}
+                        className="m-1 inline-flex items-center rounded border border-neutral-200 bg-neutral-50 p-1 text-sm leading-4 text-neutral-900 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100 gap-1"
                         title={technology.name}
                       >
-                        <Icon
-                          className={`text-lg ${technology.iconClassName}`}
-                          aria-hidden="true"
-                        />
+                        {Icon && (
+                          <Icon
+                            className={`text-lg ${technology.iconClassName}`}
+                            aria-hidden="true"
+                          />
+                        )}
                         {technology.name}
                       </span>
                     );
                   })}
                 </div>
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mt-4">
+                  <Link
+                    href={`/projects/${project.slug}`}
+                    className="inline-flex items-center gap-1 font-semibold text-pink-500 hover:text-orange-500 hover:underline underline-offset-2"
+                  >
+                    Read case study
+                    <ArrowRight className="size-4" aria-hidden="true" />
+                  </Link>
+                  {project.links[0] && (
+                    <Link
+                      href={project.links[0].href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-400 hover:text-blue-800 hover:underline underline-offset-1"
+                      aria-label={`Visit ${project.name} (opens in new tab)`}
+                    >
+                      {project.links[0].label}
+                      <FaExternalLinkAlt aria-hidden="true" />
+                    </Link>
+                  )}
+                </div>
               </div>
             </div>
-            {index < projects.length - 1 && (
-              <hr className="border-1 border-gray-400 dark:border-gray-800 my-4" />
-            )}
+            <hr className="border-1 border-gray-400 dark:border-gray-800 my-4" />
           </article>
         ))}
+
+        <h3 className="text-xl font-semibold text-center text-gray-700 dark:text-gray-400 mt-6">
+          Earlier projects
+        </h3>
+        <ul className="grid sm:grid-cols-2 gap-4 my-6" aria-label="Earlier projects">
+          {projects.map((project) => (
+            <li key={project.name} className="list-none">
+              <Link
+                href={project.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-3 rounded-lg border border-gray-400 dark:border-gray-800 p-2 hover:border-pink-500"
+                aria-label={`Visit ${project.name} – ${project.description} (opens in new tab)`}
+              >
+                <Image
+                  height={400}
+                  width={400}
+                  className="rounded aspect-video object-cover object-center w-28 shrink-0"
+                  src={project.image}
+                  alt={project.imageAlt}
+                  loading="lazy"
+                />
+                <div className="min-w-0">
+                  <div className="font-semibold text-zinc-800 dark:text-zinc-100 group-hover:text-pink-500 flex items-center gap-2">
+                    {project.name}
+                    <FaExternalLinkAlt className="text-xs" aria-hidden="true" />
+                  </div>
+                  <p className="text-sm text-gray-700 dark:text-gray-400">
+                    {project.description}
+                  </p>
+                  <p className="text-xs text-gray-500 mt-1">
+                    {project.technologies.map((t) => t.name).join(" · ")}
+                  </p>
+                </div>
+              </Link>
+            </li>
+          ))}
+        </ul>
       </section>
 
       {/* ─── Contact ───────────────────────────────────────────────────── */}
@@ -346,6 +415,15 @@ function Main() {
         <p className="text-gray-700 dark:text-gray-400 mt-4 mb-8 sm:w-3/5 mx-auto text-center">
           {contact.description}
         </p>
+        <div className="text-center mb-6">
+          <Link
+            href="/hire"
+            className="inline-flex items-center gap-1.5 rounded-lg bg-gradient px-4 py-2 font-semibold text-slate-100"
+          >
+            Start a project
+            <ArrowRight className="size-4" aria-hidden="true" />
+          </Link>
+        </div>
 
         {/* Email */}
         <div className="flex items-center justify-center gap-2 sm:gap-4 text-lg sm:text-2xl font-semibold my-4">

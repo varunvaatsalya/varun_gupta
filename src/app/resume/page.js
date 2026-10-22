@@ -1,8 +1,7 @@
 import Link from "next/link";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import resume from "../../data/resume.json";
-
-const BASE_URL = "https://varunvaatsalya.me";
+import { BASE_URL } from "../../lib/site";
 
 export const metadata = {
   title: "Resume",

@@ -1,7 +1,7 @@
 import Main from "../components/Main";
 import CoMain from "../components/CoMain";
+import { BASE_URL } from "../lib/site";
 
-const BASE_URL = "https://varunvaatsalya.me";
 
 // Static metadata export (preferred for static pages in App Router)
 export const metadata = {
@@ -23,7 +23,7 @@ export const metadata = {
   openGraph: {
     title: "Varun Gupta – Full-Stack Developer Portfolio",
     description:
-      "Explore the portfolio of Varun Gupta, a full-stack developer from Lucknow, India. View projects including ENCORE, E-CELL, Audiometer and more.",
+      "Explore the portfolio of Varun Gupta, a full-stack developer from Lucknow, India. Case studies include a hospital operations platform, a multi-country coupon platform with an MCP server, and nSplit, an offline-first expense splitter.",
     url: BASE_URL,
     type: "profile",
     images: [

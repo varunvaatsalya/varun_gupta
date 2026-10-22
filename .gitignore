@@ -34,3 +34,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# portfolio case-study source notes (not published)
+*_PORTFOLIO_CASE_STUDY.md

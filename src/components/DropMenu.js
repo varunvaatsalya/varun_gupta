@@ -64,6 +64,15 @@ export default function Dropdown() {
             Contacts
           </button>
         </a>
+        <a href="/hire" aria-label="Hire Varun Gupta for your project">
+          <button
+            type="button"
+            className="w-full h-8 rounded-lg font-semibold text-pink-500 hover:bg-gray-300 hover:dark:bg-gray-900"
+            onClick={toggleOpen}
+          >
+            Hire Me
+          </button>
+        </a>
         <hr className="border-gray-400 dark:border-gray-700 w-4/5 mx-auto block max-lg:hidden" />
         <a
           href="https://www.fiverr.com/s/99mkjaj"

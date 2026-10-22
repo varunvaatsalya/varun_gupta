@@ -1,0 +1,37 @@
+{
+  "headline": "Let's build your product",
+  "intro": "I'm a freelance full-stack developer. I take products from idea to launch on my own: web apps, mobile apps, APIs and the admin tools behind them. Tell me what you need and I'll reply within 24 hours.",
+  "process": [
+    {
+      "title": "Discovery call",
+      "description": "A short call to understand the problem, your users and what success looks like."
+    },
+    {
+      "title": "Scope & quote",
+      "description": "A written list of features, a timeline and a fixed price or a monthly plan."
+    },
+    {
+      "title": "Build with weekly demos",
+      "description": "You see working software every week and can steer it early."
+    },
+    {
+      "title": "Launch",
+      "description": "Deployment, domain and handover, with your data and code in your hands."
+    },
+    {
+      "title": "Support",
+      "description": "Bug fixes after launch, and ongoing development if you need it."
+    }
+  ],
+  "form": {
+    "projectTypes": [
+      "Web app / SaaS",
+      "Admin panel / internal software",
+      "Mobile app",
+      "Browser extension",
+      "AI / MCP integration",
+      "Something else"
+    ]
+  },
+  "whatsappMessage": "Hi Varun, I saw your portfolio and want to discuss a project."
+}

@@ -1,3 +1,4 @@
+import { BASE_URL } from "../lib/site";
 /**
  * JSON-LD Structured Data Component (Server Component)
  * Implements schema.org: Person, WebSite, WebPage
@@ -6,7 +7,6 @@
  * @see https://schema.org/WebPage
  */
 
-const BASE_URL = "https://varunvaatsalya.me";
 
 const personSchema = {
   "@context": "https://schema.org",

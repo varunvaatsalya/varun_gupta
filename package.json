@@ -1,6 +1,6 @@
 {
   "name": "varunvaatsalya",
-  "version": "0.1.0",
+  "version": "1.2.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -12,6 +12,7 @@
     "@next/third-parties": "^16.2.9",
     "embla-carousel-react": "^8.6.0",
     "lucide-react": "^1.28.0",
+    "mongoose": "^8.24.6",
     "next": "14.2.35",
     "react": "^18",
     "react-dom": "^18",
