@@ -267,7 +267,6 @@
       "image": "/images/fiverr-web.png",
       "imageAlt": "Varun Gupta's Fiverr profile – freelance full-stack web development services",
       "href": "https://www.fiverr.com/s/8z5y2Y4",
-      "cta": "Hire me for Web Development",
       "ariaLabel": "Hire Varun Gupta on Fiverr for your web development project (opens in new tab)"
     },
     {
@@ -276,7 +275,6 @@
       "image": "/images/fiverr-app.png",
       "imageAlt": "Varun Gupta's Fiverr profile – freelance app development services",
       "href": "https://www.fiverr.com/s/zWYBXz3",
-      "cta": "Hire me for App Development",
       "ariaLabel": "Hire Varun Gupta on Fiverr for your app development project (opens in new tab)"
     }
   ],

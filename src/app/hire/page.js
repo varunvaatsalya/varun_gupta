@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, Mail, MessageCircle } from "lucide-react";
 import { TbBrandFiverr } from "react-icons/tb";
@@ -88,59 +89,71 @@ export default function HirePage() {
             whatsappHref={whatsappHref}
             ownEmails={contact.emails.map((item) => item.value)}
           />
+
+          <div className="flex items-center gap-3 my-5 text-xs text-gray-500" aria-hidden="true">
+            <span className="h-px flex-1 bg-gray-400 dark:bg-gray-800" />
+            or reach me directly
+            <span className="h-px flex-1 bg-gray-400 dark:bg-gray-800" />
+          </div>
+          <div className="grid sm:grid-cols-2 gap-3">
+            <a
+              href={whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-lg border border-gray-400 dark:border-gray-700 px-4 py-2.5 font-semibold text-zinc-800 dark:text-zinc-100 hover:border-emerald-500 hover:text-emerald-600 dark:hover:text-emerald-400"
+              aria-label="Chat on WhatsApp (opens in new tab)"
+            >
+              <MessageCircle className="size-4 text-emerald-500" aria-hidden="true" />
+              WhatsApp
+            </a>
+            <a
+              href={`mailto:${email}`}
+              className="inline-flex items-center justify-center gap-2 rounded-lg border border-gray-400 dark:border-gray-700 px-4 py-2.5 font-semibold text-zinc-800 dark:text-zinc-100 hover:border-pink-500 hover:text-pink-500"
+              aria-label={`Send email to ${email}`}
+            >
+              <Mail className="size-4 text-pink-500" aria-hidden="true" />
+              Email
+            </a>
+          </div>
         </section>
 
-        <aside className={sectionClassName} aria-labelledby="direct-heading">
-          <h2 id="direct-heading" className="text-xl font-semibold gradient w-fit mb-1">
-            Prefer to talk directly?
+        <aside className={sectionClassName} aria-labelledby="fiverr-heading">
+          <h2 id="fiverr-heading" className="text-xl font-semibold gradient w-fit mb-1">
+            Prefer Fiverr?
           </h2>
           <p className="text-sm text-gray-700 dark:text-gray-400 mb-4">
-            Reach me wherever is easiest for you.
+            Order through Fiverr and pay with its buyer protection.
           </p>
-          <ul className="space-y-3">
-            <li>
-              <a
-                href={whatsappHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 rounded-lg border border-gray-400 dark:border-gray-800 p-3 hover:border-emerald-500"
-                aria-label="Chat on WhatsApp (opens in new tab)"
-              >
-                <MessageCircle className="size-5 text-emerald-500" aria-hidden="true" />
-                <span>
-                  <span className="block font-semibold text-zinc-800 dark:text-zinc-100">WhatsApp</span>
-                  <span className="text-xs text-gray-700 dark:text-gray-400">{contact.phone.value}</span>
-                </span>
-              </a>
-            </li>
-            <li>
-              <a
-                href={`mailto:${email}`}
-                className="flex items-center gap-3 rounded-lg border border-gray-400 dark:border-gray-800 p-3 hover:border-pink-500"
-                aria-label={`Send email to ${email}`}
-              >
-                <Mail className="size-5 text-pink-500" aria-hidden="true" />
-                <span className="min-w-0">
-                  <span className="block font-semibold text-zinc-800 dark:text-zinc-100">Email</span>
-                  <span className="text-xs text-gray-700 dark:text-gray-400 break-all">{email}</span>
-                </span>
-              </a>
-            </li>
-            <li>
-              <a
-                href={resume.fiverrProfileUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 rounded-lg border border-gray-400 dark:border-gray-800 p-3 hover:border-green-500"
-                aria-label="Hire me on Fiverr (opens in new tab)"
-              >
-                <TbBrandFiverr className="size-5 text-green-500" aria-hidden="true" />
-                <span>
-                  <span className="block font-semibold text-zinc-800 dark:text-zinc-100">Fiverr</span>
-                  <span className="text-xs text-gray-700 dark:text-gray-400">Pay through Fiverr’s protection</span>
-                </span>
-              </a>
-            </li>
+          <ul className="space-y-4">
+            {resume.fiverrGigs.map((gig) => (
+              <li key={gig.id}>
+                <a
+                  href={gig.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group block overflow-hidden rounded-lg border border-gray-400 dark:border-gray-800 hover:border-green-500"
+                  aria-label={gig.ariaLabel}
+                >
+                  <Image
+                    height={800}
+                    width={800}
+                    src={gig.image}
+                    alt={gig.imageAlt}
+                    className="w-full"
+                    loading="lazy"
+                  />
+                  <span className="flex items-center justify-between gap-2 px-3 py-2">
+                    <span className="font-semibold text-zinc-800 dark:text-zinc-100">
+                      {gig.title}
+                    </span>
+                    <span className="inline-flex items-center gap-1 text-sm font-semibold text-green-600 dark:text-green-500 group-hover:underline underline-offset-2">
+                      <TbBrandFiverr aria-hidden="true" />
+                      View gig
+                    </span>
+                  </span>
+                </a>
+              </li>
+            ))}
           </ul>
         </aside>
       </div>

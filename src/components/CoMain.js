@@ -12,24 +12,31 @@ function CoMain() {
         id="freelancing"
         className="bg-zinc-200 dark:bg-gray-950 w-full border border-gray-400 dark:border-gray-800 rounded-lg flex flex-col justify-center items-center"
       >
-        <div className="flex gap-1 w-full items-center px-2 my-1">
+        <Link
+          href={resume.fiverrProfileUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          title="View Fiverr profile"
+          aria-label="View my Fiverr profile (opens in new tab)"
+          className="group flex gap-1 w-full items-center px-2 my-1 font-bold text-gray-700 dark:text-gray-300"
+        >
           <TbBrandFiverr
-            className="text-2xl text-green-200 dark:text-green-800 outline outline-2 outline-offset-2 outline-gray-400 dark:outline-gray-700 rounded-full m-2"
+            className="text-2xl text-green-600 dark:text-green-500 outline outline-2 outline-offset-2 outline-gray-400 dark:outline-gray-700 rounded-full m-2"
             aria-hidden="true"
           />
-          <Link
-            href={resume.fiverrProfileUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            title="View Fiverr profile"
-            aria-label="View Fiverr profile"
-            className="font-bold text-gray-400 dark:text-gray-700 hover:text-pink-500 hover:underline underline-offset-2"
-          >
+          <span className="group-hover:text-green-600 dark:group-hover:text-green-500 group-hover:underline underline-offset-2">
             {resume.fiverrLabel}
-          </Link>
-        </div>
+          </span>
+        </Link>
 
         <FiverrGigsCarousel gigs={gigs} />
+
+        <Link
+          href="/hire"
+          className="text-lg font-bold py-2 text-center text-pink-500 hover:text-orange-500 hover:underline underline-offset-2"
+        >
+          Hire Me
+        </Link>
       </div>
 
       <Link

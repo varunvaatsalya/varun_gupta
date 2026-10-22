@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import useEmblaCarousel from "embla-carousel-react";
 import { useCallback, useEffect, useState } from "react";
 
@@ -48,8 +47,6 @@ export default function FiverrGigsCarousel({ gigs = [] }) {
   }, [emblaApi, gigs.length, paused]);
 
   if (!gigs.length) return null;
-
-  const activeGig = gigs[active] ?? gigs[0];
 
   return (
     <div
@@ -119,16 +116,6 @@ export default function FiverrGigsCarousel({ gigs = [] }) {
           </div>
         )}
       </div>
-
-      <Link
-        href={activeGig.href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-lg font-bold pt-2 text-pink-500 hover:text-orange-500 hover:underline underline-offset-2 pb-2"
-        aria-label={activeGig.ariaLabel}
-      >
-        {activeGig.cta}
-      </Link>
     </div>
   );
 }
