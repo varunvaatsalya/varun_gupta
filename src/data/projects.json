@@ -289,8 +289,8 @@
       "coverClassName": "from-violet-500 to-indigo-600",
       "platforms": ["Web app", "Android app"],
       "links": [
-        { "label": "nsplit.vercel.app", "href": "https://nsplit.vercel.app" },
-        { "label": "Download for Android", "href": "https://nsplit.vercel.app/download", "kind": "download" }
+        { "label": "nsplit.in", "href": "https://nsplit.in" },
+        { "label": "Download for Android", "href": "https://nsplit.in/download", "kind": "download" }
       ],
       "highlights": [
         { "value": "100%", "label": "works offline" },
